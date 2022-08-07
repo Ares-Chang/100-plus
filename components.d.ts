@@ -9,6 +9,11 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Counter: typeof import('./src/components/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    NButton: typeof import('naive-ui')['NButton']
+    NCalendar: typeof import('naive-ui')['NCalendar']
+    NCard: typeof import('naive-ui')['NCard']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NSpace: typeof import('naive-ui')['NSpace']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

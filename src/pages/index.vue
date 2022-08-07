@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { addDays } from 'date-fns/esm'
 const name = $ref('')
 
 const router = useRouter()
@@ -6,6 +7,8 @@ const go = () => {
   if (name)
     router.push(`/hi/${encodeURIComponent(name)}`)
 }
+
+const value = ref(addDays(Date.now(), 1).valueOf())
 </script>
 
 <template>
@@ -45,6 +48,35 @@ const go = () => {
       >
         Go
       </button>
+
+      <NCalendar
+        v-model:value="value"
+        #="{ year, month, date }"
+      >
+        {{ year }}-{{ month }}-{{ date }}
+      </NCalendar>
+
+      <NSpace justify="center">
+        <NButton>Default</NButton>
+        <NButton type="tertiary">
+          Tertiary
+        </NButton>
+        <NButton type="primary">
+          Primary
+        </NButton>
+        <NButton type="info">
+          Info
+        </NButton>
+        <NButton type="success">
+          Success
+        </NButton>
+        <NButton type="warning">
+          Warning
+        </NButton>
+        <NButton type="error">
+          Error
+        </NButton>
+      </NSpace>
     </div>
   </div>
 </template>
