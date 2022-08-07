@@ -56,6 +56,8 @@ const value = ref(addDays(Date.now(), 1).valueOf())
         {{ year }}-{{ month }}-{{ date }}
       </NCalendar>
 
+      <br>
+
       <NSpace justify="center">
         <NButton>Default</NButton>
         <NButton type="tertiary">
