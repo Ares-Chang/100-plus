@@ -9,5 +9,6 @@ const theme = computed(() => (isDark.value ? darkTheme : null))
       <router-view />
       <Footer />
     </main>
+    <n-global-style />
   </n-config-provider>
 </template>
