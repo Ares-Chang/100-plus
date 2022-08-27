@@ -79,6 +79,8 @@ const value = ref(addDays(Date.now(), 1).valueOf())
           Error
         </NButton>
       </NSpace>
+
+      <n-input type="text" />
     </div>
   </div>
 </template>
