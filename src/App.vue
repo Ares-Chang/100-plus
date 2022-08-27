@@ -5,7 +5,7 @@ const theme = computed(() => (isDark.value ? darkTheme : null))
 
 <template>
   <n-config-provider :locale="zhCN" :date-locale="dateZhCN" :theme="theme">
-    <main font-sans p="x-4 y-10" text="center gray-700 dark:gray-200">
+    <main font-sans p="x-4 y-10" text="gray-700 dark:gray-200">
       <router-view />
       <Footer />
     </main>

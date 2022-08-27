@@ -12,7 +12,7 @@ const value = ref(addDays(Date.now(), 1).valueOf())
 </script>
 
 <template>
-  <div>
+  <div text-center>
     <div i-carbon-campsite text-4xl inline-block />
     <p>
       <a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
@@ -48,39 +48,40 @@ const value = ref(addDays(Date.now(), 1).valueOf())
       >
         Go
       </button>
-
-      <NCalendar
-        v-model:value="value"
-        #="{ year, month, date }"
-      >
-        {{ year }}-{{ month }}-{{ date }}
-      </NCalendar>
-
-      <br>
-
-      <NSpace justify="center">
-        <NButton>Default</NButton>
-        <NButton type="tertiary">
-          Tertiary
-        </NButton>
-        <NButton type="primary">
-          Primary
-        </NButton>
-        <NButton type="info">
-          Info
-        </NButton>
-        <NButton type="success">
-          Success
-        </NButton>
-        <NButton type="warning">
-          Warning
-        </NButton>
-        <NButton type="error">
-          Error
-        </NButton>
-      </NSpace>
-
-      <n-input type="text" />
     </div>
+    <NCalendar
+      v-model:value="value"
+      #="{ year, month, date }"
+    >
+      {{ year }}-{{ month }}-{{ date }}
+    </NCalendar>
+
+    <br>
+
+    <NSpace justify="center">
+      <NButton>Default</NButton>
+      <NButton type="tertiary">
+        Tertiary
+      </NButton>
+      <NButton type="primary">
+        Primary
+      </NButton>
+      <NButton type="info">
+        Info
+      </NButton>
+      <NButton type="success">
+        Success
+      </NButton>
+      <NButton type="warning">
+        Warning
+      </NButton>
+      <NButton type="error">
+        Error
+      </NButton>
+    </NSpace>
+
+    <br>
+
+    <n-input type="text" />
   </div>
 </template>
