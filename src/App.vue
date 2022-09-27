@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { darkTheme, dateZhCN, zhCN } from 'naive-ui'
+
 const theme = computed(() => (isDark.value ? darkTheme : null))
 </script>
 
