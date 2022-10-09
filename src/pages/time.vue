@@ -6,15 +6,17 @@ let time = $ref('')
 watchEffect(() => {
   [date, week, time] = useDateFormat(useNow(), 'MM-DD ddd HH:mm ss').value.split(' ')
 })
+
+const { toggle } = useFullscreen()
 </script>
 
 <template>
-  <div class="box" select-none>
+  <div class="box" select-none @click="toggle">
     <div flex justify-center gap-10 z-1>
-      <a href="https://github.com/Ares-Chang/calendar-clock" target="_blank">
+      <a href="https://github.com/Ares-Chang/calendar-clock" target="_blank" @click.stop>
         <span class="GitHub">GitHub</span>
       </a>
-      <a href="https://areschang.top" target="_blank">
+      <a href="https://areschang.top" target="_blank" @click.stop>
         <span class="AresChang">Ares Chang</span>
       </a>
     </div>
