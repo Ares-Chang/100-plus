@@ -12,6 +12,6 @@ const value = ref(addDays(Date.now(), 1).valueOf())
     >
       {{ year }}-{{ month }}-{{ date }}
     </NCalendar>
-    <Footer absolute top-4 right-6 />
+    <Footer absolute top-4 right-4 />
   </div>
 </template>
