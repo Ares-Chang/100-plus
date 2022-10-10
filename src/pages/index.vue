@@ -4,15 +4,14 @@ const value = ref(addDays(Date.now(), 1).valueOf())
 </script>
 
 <template>
-  <div p="x-4 y-10">
-    <div>
-      <NCalendar
-        v-model:value="value"
-        #="{ year, month, date }"
-      >
-        {{ year }}-{{ month }}-{{ date }}
-      </NCalendar>
-    </div>
-    <Footer />
+  <div h100vh flex justify-center items-center>
+    <NCalendar
+      v-model:value="value"
+      w80vw h="90vh!"
+      #="{ year, month, date }"
+    >
+      {{ year }}-{{ month }}-{{ date }}
+    </NCalendar>
+    <Footer absolute top-4 right-6 />
   </div>
 </template>
