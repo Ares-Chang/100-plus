@@ -16,9 +16,7 @@ const { toggle } = useFullscreen()
       <a href="https://github.com/Ares-Chang/calendar-clock" target="_blank" @click.stop>
         <span class="GitHub">GitHub</span>
       </a>
-      <a href="https://areschang.top" target="_blank" @click.stop>
-        <span class="AresChang">Ares Chang</span>
-      </a>
+      <Logo />
     </div>
     <div text-size-28vh>
       {{ date }} {{ week }}
@@ -39,12 +37,7 @@ const { toggle } = useFullscreen()
   @apply h-100vh overflow-hidden font-bold text-center flex justify-center;
 }
 .box span {
+  line-height: 1;
   @apply text-size-7vh font-bold
-}
-.AresChang {
-  color: transparent;
-  background: linear-gradient( 315deg, #42d392 25%, #647eff );
-  background-clip: text;
-  -webkit-background-clip: text;
 }
 </style>
