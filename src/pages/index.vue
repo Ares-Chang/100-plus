@@ -13,7 +13,7 @@ const value = ref(addDays(Date.now(), 1).valueOf())
     >
       <NavBar />
     </n-layout-header>
-    <n-layout>
+    <n-layout :native-scrollbar="false">
       <n-layout-content p-8>
         <div flex justify-center items-center>
           <NCalendar
