@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     Menu: typeof import('./src/components/Menu.vue')['default']
     Nav: typeof import('./src/components/Nav.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
+    NBadge: typeof import('naive-ui')['NBadge']
     NButton: typeof import('naive-ui')['NButton']
     NCalendar: typeof import('naive-ui')['NCalendar']
     NCard: typeof import('naive-ui')['NCard']
