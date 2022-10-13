@@ -33,10 +33,19 @@ enum DateType {
 }
 
 let dateList = $ref<YearList[]>([])
+let pitchYear = $ref<number | string>(useDateFormat(value, 'YYYY').value)
+
+watch(
+  () => pitchYear,
+  () => getDataList(pitchYear),
+)
+function changePanel({ year, month }: { year: number; month: number }) {
+  pitchYear = year
+}
 
 /**
- * 查询指定月份万年历
- * @param date The date to query YYYYMM
+ * 查询指定年份万年历
+ * @param date The date to query YYYY
  */
 async function getDataList(date: string | number) {
   try {
@@ -45,9 +54,7 @@ async function getDataList(date: string | number) {
         value: { code, data },
       },
     } = await useFetch(
-      `https://www.mxnzp.com/api/holiday/list/year/${
-        useDateFormat(date, 'YYYY').value
-      }?gnoreHoliday=false&app_id=${
+      `https://www.mxnzp.com/api/holiday/list/year/${date}?gnoreHoliday=false&app_id=${
         import.meta.env.VITE_ROLL_APP_ID
       }&app_secret=${import.meta.env.VITE_ROLL_APP_SECRET}`,
     ).json()
@@ -62,7 +69,7 @@ async function getDataList(date: string | number) {
   }
 }
 
-getDataList(value)
+getDataList(pitchYear)
 
 /**
  * 获取当前日期对应数据
@@ -83,7 +90,13 @@ function getToday(month: number, date: number) {
     <n-layout :native-scrollbar="false">
       <n-layout-content p-8>
         <div flex justify-center items-center>
-          <NCalendar v-model:value="value" w80vw h="90vh!" #="{ month, date }">
+          <NCalendar
+            v-model:value="value"
+            w80vw
+            h="90vh!"
+            #="{ month, date }"
+            :on-panel-change="changePanel"
+          >
             <n-badge
               v-if="getToday(month, date).type === 2"
               value="休"
