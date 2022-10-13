@@ -25,7 +25,11 @@ interface days {
   yearTips?: string
 }
 
-enum DateType {'工作日', '假日', '节假日' }
+enum DateType {
+  '工作日',
+  '假日',
+  '节假日',
+}
 
 let dateList = $ref<YearList[]>([])
 
@@ -34,7 +38,11 @@ let dateList = $ref<YearList[]>([])
  * @param date The date to query YYYYMM
  */
 async function getDataList(date: string | number) {
-  const { data: { value: { data } } } = await useFetch(
+  const {
+    data: {
+      value: { data },
+    },
+  } = await useFetch(
     `https://www.mxnzp.com/api/holiday/list/year/${
       useDateFormat(date, 'YYYY').value
     }?gnoreHoliday=false&app_id=${
@@ -66,15 +74,24 @@ function getToday(month: number, date: number) {
     <n-layout :native-scrollbar="false">
       <n-layout-content p-8>
         <div flex justify-center items-center>
-          <NCalendar
-            v-model:value="value"
-            w80vw
-            h="90vh!"
-            #="{ month, date }"
-          >
-            <n-badge v-if="getToday(month, date).type === 2" value="休" />
+          <NCalendar v-model:value="value" w80vw h="90vh!" #="{ month, date }">
+            <n-badge
+              v-if="getToday(month, date).type === 2"
+              value="休"
+              :color="isDark ? 'green' : '#88c200'"
+            />
+            <n-badge
+              v-else-if="
+                getToday(month, date).type === 0
+                  && [6, 7].includes(getToday(month, date).weekDay)
+              "
+              value="班"
+              :color="isDark ? '' : '#e65945'"
+            />
             <p>{{ getToday(month, date).lunarCalendar }}</p>
-            <p>{{ getToday(month, date).typeDes }}</p>
+            <p v-if="getToday(month, date).type === 2" color="#ff5957">
+              {{ getToday(month, date).typeDes }}
+            </p>
           </NCalendar>
         </div>
       </n-layout-content>
