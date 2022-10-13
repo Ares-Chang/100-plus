@@ -33,7 +33,7 @@ enum DateType {
 }
 
 let dateList = $ref<YearList[]>([])
-let pitchYear = $ref<number | string>(useDateFormat(value, 'YYYY').value)
+let pitchYear = $ref(+useDateFormat(value, 'YYYY').value)
 
 watch(
   () => pitchYear,
