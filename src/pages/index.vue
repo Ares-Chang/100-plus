@@ -33,15 +33,12 @@ enum DateType {
 }
 
 let dateList = $ref<YearList[]>([])
-let pitchYear = $ref(+useDateFormat(value, 'YYYY').value)
+const pitchYear = $ref(+useDateFormat(value, 'YYYY').value)
 
 watch(
   () => pitchYear,
   () => getDataList(pitchYear),
 )
-function changePanel({ year, month }: { year: number; month: number }) {
-  pitchYear = year
-}
 
 /**
  * 查询指定年份万年历
@@ -95,7 +92,7 @@ function getToday(month: number, date: number) {
             w80vw
             h="90vh!"
             #="{ month, date }"
-            :on-panel-change="changePanel"
+            :on-panel-change="({ year }) => (pitchYear = year)"
           >
             <n-badge
               v-if="getToday(month, date).type === 2"
