@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { addDays } from 'date-fns/esm'
 const value = $ref(addDays(Date.now(), 1).valueOf())
+const message = useMessage()
 
 interface YearList {
   year: number
@@ -38,19 +39,27 @@ let dateList = $ref<YearList[]>([])
  * @param date The date to query YYYYMM
  */
 async function getDataList(date: string | number) {
-  const {
-    data: {
-      value: { data },
-    },
-  } = await useFetch(
-    `https://www.mxnzp.com/api/holiday/list/year/${
-      useDateFormat(date, 'YYYY').value
-    }?gnoreHoliday=false&app_id=${
-      import.meta.env.VITE_ROLL_APP_ID
-    }&app_secret=${import.meta.env.VITE_ROLL_APP_SECRET}`,
-  ).json()
+  try {
+    const {
+      data: {
+        value: { code, data },
+      },
+    } = await useFetch(
+      `https://www.mxnzp.com/api/holiday/list/year/${
+        useDateFormat(date, 'YYYY').value
+      }?gnoreHoliday=false&app_id=${
+        import.meta.env.VITE_ROLL_APP_ID
+      }&app_secret=${import.meta.env.VITE_ROLL_APP_SECRET}`,
+    ).json()
 
-  dateList = data
+    if (code !== 1)
+      throw code
+
+    dateList = data
+  }
+  catch (error) {
+    message.error('万年历获取失败！')
+  }
 }
 
 getDataList(value)
