@@ -7,6 +7,7 @@
       mx-2
       icon-btn i-carbon:time
       href="/time"
+      target="_blank"
       title="Time"
     />
 
