@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { addDays } from 'date-fns/esm'
+
 const value = $ref(addDays(Date.now(), 1).valueOf())
 const message = useMessage()
 
@@ -77,46 +78,42 @@ getDataList(pitchYear)
 function getToday(month: number, date: number) {
   return dateList[month - 1]?.days[date - 1] || {}
 }
+
+interface DateInfo {
+  year: number
+  month: number
+  date: number
+}
+function handleClick(_: number, info: DateInfo) {
+  console.log(info)
+}
 </script>
 
 <template>
-  <n-layout h-100vh content-style="display: flex; flex-flow: column;">
-    <n-layout-header bordered>
-      <NavBar />
-    </n-layout-header>
-    <n-layout :native-scrollbar="false">
-      <n-layout-content p-8>
-        <div flex justify-center items-center>
-          <NCalendar
-            v-model:value="value"
-            w80vw
-            h="90vh!"
-            #="{ month, date }"
-            :on-panel-change="({ year }) => (pitchYear = year)"
-          >
-            <n-badge
-              v-if="getToday(month, date).type === 2"
-              value="休"
-              :color="isDark ? 'green' : '#88c200'"
-            />
-            <n-badge
-              v-else-if="
-                getToday(month, date).type === 0
-                  && [6, 7].includes(getToday(month, date).weekDay)
-              "
-              value="班"
-              :color="isDark ? '' : '#e65945'"
-            />
-            <p>{{ getToday(month, date).lunarCalendar }}</p>
-            <p v-if="getToday(month, date).type === 2" color="#ff5957">
-              {{ getToday(month, date).typeDes }}
-            </p>
-          </NCalendar>
-        </div>
-      </n-layout-content>
-      <n-layout-footer bordered>
-        <Footer />
-      </n-layout-footer>
-    </n-layout>
-  </n-layout>
+  <NCalendar
+    v-model:value="value"
+    w80vw
+    h="90vh!"
+    #="{ month, date }"
+    @panel-change="({ year }) => (pitchYear = year)"
+    @update-value="handleClick"
+  >
+    <n-badge
+      v-if="getToday(month, date).type === 2"
+      value="休"
+      :color="isDark ? 'green' : '#88c200'"
+    />
+    <n-badge
+      v-else-if="
+        getToday(month, date).type === 0
+          && [6, 7].includes(getToday(month, date).weekDay)
+      "
+      value="班"
+      :color="isDark ? '' : '#e65945'"
+    />
+    <p>{{ getToday(month, date).lunarCalendar }}</p>
+    <p v-if="getToday(month, date).type === 2" color="#ff5957">
+      {{ getToday(month, date).typeDes }}
+    </p>
+  </NCalendar>
 </template>
