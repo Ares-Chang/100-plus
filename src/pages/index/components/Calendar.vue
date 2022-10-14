@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { addDays } from 'date-fns/esm'
+import Modal from './Modal.vue'
 
 const value = $ref(addDays(Date.now(), 1).valueOf())
 const message = useMessage()
@@ -7,10 +8,10 @@ const message = useMessage()
 interface YearList {
   year: number
   month: number
-  days: days[]
+  days: Days[]
 }
 
-interface days {
+interface Days {
   avoid: string
   chineseZodiac: string
   constellation: string
@@ -79,14 +80,7 @@ function getToday(month: number, date: number) {
   return dateList[month - 1]?.days[date - 1] || {}
 }
 
-interface DateInfo {
-  year: number
-  month: number
-  date: number
-}
-function handleClick(_: number, info: DateInfo) {
-  console.log(info)
-}
+const show = $ref(false) // 控制弹窗显隐
 </script>
 
 <template>
@@ -96,7 +90,7 @@ function handleClick(_: number, info: DateInfo) {
     h="90vh!"
     #="{ month, date }"
     @panel-change="({ year }) => (pitchYear = year)"
-    @update-value="handleClick"
+    @update-value="() => (show = true)"
   >
     <n-badge
       v-if="getToday(month, date).type === 2"
@@ -116,4 +110,15 @@ function handleClick(_: number, info: DateInfo) {
       {{ getToday(month, date).typeDes }}
     </p>
   </NCalendar>
+
+  <Modal
+    v-if="show"
+    v-model:show="show"
+    :data="
+      getToday(
+        +useDateFormat(value, 'MM').value,
+        +useDateFormat(value, 'DD').value,
+      )
+    "
+  />
 </template>
