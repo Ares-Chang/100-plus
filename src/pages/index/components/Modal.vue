@@ -43,14 +43,17 @@ const KEYLIST = [
   {
     label: '周天数',
     key: 'weekDay',
+    tips: '本周第几天',
   },
   {
     label: '年天数',
     key: 'dayOfYear',
+    tips: '本年第几天',
   },
   {
     label: '年周数',
     key: 'weekOfYear',
+    tips: '本年第几周',
   },
 ]
 </script>
@@ -69,9 +72,13 @@ const KEYLIST = [
       <n-list-item v-for="(item, index) in KEYLIST" :key="index">
         <n-grid x-gap="12" :cols="4">
           <n-gi> {{ item.label }} </n-gi>
-          <n-gi>
+          <n-gi span="2">
             {{ item.key === 'typeDes' ? '今天是' : ''
             }}{{ (data as any)[item.key] }}
+          </n-gi>
+          <n-gi v-if="item.tips" color="gray/80" flex items-center>
+            <i icon-btn text-sm i-carbon:ai-status-in-progress mr-1 />
+            {{ item.tips }}
           </n-gi>
         </n-grid>
       </n-list-item>
