@@ -69,11 +69,11 @@ const KEYLIST = [
     @update-show="e => emit('update:show', e)"
   >
     <div mb-4>
-      <span bg-green-7 p="x-2 y-1" mr-5>宜</span>
+      <span color-white bg-green-7 p="x-2 y-1" mr-5>宜</span>
       <span color="green-6">{{ data.suit }}</span>
     </div>
     <div mb-4>
-      <span bg-red-7 p="x-2 y-1" mr-5>忌</span>
+      <span color-white bg-red-7 p="x-2 y-1" mr-5>忌</span>
       <span color-red-5>{{ data.avoid }}</span>
     </div>
     <n-list>
