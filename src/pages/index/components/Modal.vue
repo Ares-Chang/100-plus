@@ -68,6 +68,14 @@ const KEYLIST = [
     :bordered="false"
     @update-show="e => emit('update:show', e)"
   >
+    <div mb-4>
+      <span bg-green-7 p="x-2 y-1" mr-5>宜</span>
+      <span color="green-6">{{ data.suit }}</span>
+    </div>
+    <div mb-4>
+      <span bg-red-7 p="x-2 y-1" mr-5>忌</span>
+      <span color-red-5>{{ data.avoid }}</span>
+    </div>
     <n-list>
       <n-list-item v-for="(item, index) in KEYLIST" :key="index">
         <n-grid x-gap="12" :cols="4">
