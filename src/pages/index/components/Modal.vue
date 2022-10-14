@@ -22,8 +22,6 @@ const { show, data } = defineProps<{
 }>()
 const emit = defineEmits(['update:show'])
 
-console.log(data)
-
 const date = $ref(data.date)
 const showModal = ref(show)
 
@@ -68,6 +66,10 @@ const KEYLIST = [
     :bordered="false"
     @update-show="e => emit('update:show', e)"
   >
+    <template #header>
+      <p>{{ data.date }}</p>
+      <p>{{ data.yearTips }}年 {{ data.lunarCalendar }} 星期{{ useDateFormat(data.date, 'dd').value }}</p>
+    </template>
     <div mb-4>
       <span color-white bg-green-7 p="x-2 y-1" mr-5>宜</span>
       <span color="green-6">{{ data.suit }}</span>
