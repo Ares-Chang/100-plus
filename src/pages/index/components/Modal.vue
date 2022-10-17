@@ -1,22 +1,5 @@
 <script setup lang="ts">
-interface Days {
-  avoid: string
-  chineseZodiac: string
-  constellation: string
-  date: string
-  dayOfYear: number
-  indexWorkDayOfMonth?: number
-  lunarCalendar: string
-  solarTerms: string
-  suit: string
-  type?: number
-  typeDes: string
-  weekDay: number
-  weekOfYear: number
-  yearTips?: string
-  [key: string]: any
-}
-
+import type { Days } from '@/types/Calendar'
 const { show, data } = defineProps<{
   show: boolean
   data: Days

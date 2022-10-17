@@ -1,38 +1,10 @@
 <script setup lang="ts">
 import { addDays } from 'date-fns/esm'
 import Modal from './Modal.vue'
+import type { YearList } from '@/types/Calendar'
 
 const value = $ref(addDays(Date.now(), 1).valueOf())
 const message = useMessage()
-
-interface YearList {
-  year: number
-  month: number
-  days: Days[]
-}
-
-interface Days {
-  avoid: string
-  chineseZodiac: string
-  constellation: string
-  date: string
-  dayOfYear: number
-  indexWorkDayOfMonth?: number
-  lunarCalendar: string
-  solarTerms: string
-  suit: string
-  type?: DateType
-  typeDes: string
-  weekDay: number
-  weekOfYear: number
-  yearTips?: string
-}
-
-enum DateType {
-  '工作日',
-  '假日',
-  '节假日',
-}
 
 let dateList = $ref<YearList[]>([])
 const pitchYear = $ref(+useDateFormat(value, 'YYYY').value)
