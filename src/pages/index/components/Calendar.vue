@@ -90,7 +90,6 @@ const show = $ref(false) // 控制弹窗显隐
     h="90vh!"
     #="{ month, date }"
     @panel-change="({ year }) => (pitchYear = year)"
-    @update-value="() => (show = true)"
   >
     <n-badge
       v-if="getToday(month, date).type === 2"
@@ -109,6 +108,14 @@ const show = $ref(false) // 控制弹窗显隐
     <p v-if="getToday(month, date).type === 2" color="#ff5957">
       {{ getToday(month, date).typeDes }}
     </p>
+    <div
+      text-sm color="#ffffff8f" hover:color="#ffffff"
+      flex items-center
+      position-absolute bottom-2 right-2
+      @click="() => (show = true)"
+    >
+      详情
+    </div>
   </NCalendar>
 
   <Modal
