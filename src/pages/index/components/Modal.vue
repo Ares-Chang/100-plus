@@ -14,6 +14,7 @@ interface Days {
   weekDay: number
   weekOfYear: number
   yearTips?: string
+  [key: string]: any
 }
 
 const { show, data } = defineProps<{
@@ -84,7 +85,7 @@ const KEYLIST = [
           <n-gi> {{ item.label }} </n-gi>
           <n-gi span="2">
             {{ item.key === 'typeDes' ? '今天是' : ''
-            }}{{ (data as any)[item.key] }}
+            }}{{ data[item.key] }}
           </n-gi>
           <n-gi v-if="item.tips" color="gray/80" flex items-center>
             <i icon-btn text-sm i-carbon:ai-status-in-progress mr-1 />
