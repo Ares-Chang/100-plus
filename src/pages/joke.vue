@@ -6,7 +6,7 @@ interface JokeInfo {
   updateTime: string
 }
 const message = useMessage()
-let dataList = $ref<JokeInfo[]>([])
+const dataList = $ref<JokeInfo[]>([])
 /**
  * 随机获取笑话段子列表
  */
@@ -25,14 +25,19 @@ async function getDataList() {
     if (code !== 1)
       throw code
 
-    dataList = data
+    dataList.push(...data)
   }
   catch (error) {
     message.error('啊哦 ~ 数据好像走丢了')
   }
 }
 
-getDataList()
+getDataList().then(() =>
+  // 接口不支持短时间连续访问，QPS 1s
+  setTimeout(() => {
+    getDataList()
+  }, 1000),
+)
 </script>
 
 <template>
