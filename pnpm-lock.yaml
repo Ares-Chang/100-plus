@@ -19,6 +19,7 @@ specifiers:
   unplugin-vue-components: ^0.22.8
   vite: ^3.1.7
   vite-plugin-pages: ^0.26.0
+  vite-plugin-vue-layouts: ^0.7.0
   vitest: ^0.24.1
   vue: ^3.2.40
   vue-router: ^4.1.5
@@ -47,6 +48,7 @@ devDependencies:
   unplugin-vue-components: 0.22.8_vue@3.2.40
   vite: 3.1.7
   vite-plugin-pages: 0.26.0_vite@3.1.7
+  vite-plugin-vue-layouts: 0.7.0_d7owwgkmo6iqlcv7qgzubrtxem
   vitest: 0.24.1_jsdom@20.0.1
   vue-tsc: 1.0.7_typescript@4.8.4
 
@@ -874,7 +876,6 @@ packages:
 
   /@vue/devtools-api/6.2.1:
     resolution: {integrity: sha512-OEgAMeQXvCoJ+1x8WyQuVZzFo0wcyCmUR3baRVLmKBo1LmYZWMlRiXlux5jd0fqVJu6PfDbOrZItVqUEzLobeQ==}
-    dev: false
 
   /@vue/reactivity-transform/3.2.40:
     resolution: {integrity: sha512-HQUCVwEaacq6fGEsg2NUuGKIhUveMCjOk8jGHqLXPI2w6zFoPrlQhwWEaINTv5kkZDXKEnCijAp+4gNEHG03yw==}
@@ -4647,6 +4648,23 @@ packages:
       - supports-color
     dev: true
 
+  /vite-plugin-vue-layouts/0.7.0_d7owwgkmo6iqlcv7qgzubrtxem:
+    resolution: {integrity: sha512-k5XDmRNFo4M/GmUjhbRXj2WmJiFcGoVI8l/uZ72RHyRDQr4wE/6Zq/KFq0lqXomWQxTSzakQRUswzNwtvZLE8A==}
+    peerDependencies:
+      vite: ^2.5.0 || ^3.0.0-0
+      vue: ^2.6.12 || ^3.2.4
+      vue-router: ^3.5.1 || ^ 4.0.11
+    dependencies:
+      '@vue/compiler-sfc': 3.2.40
+      debug: 4.3.4
+      fast-glob: 3.2.12
+      vite: 3.1.7
+      vue: 3.2.40
+      vue-router: 4.1.5_vue@3.2.40
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /vite/3.1.7:
     resolution: {integrity: sha512-5vCAmU4S8lyVdFCInu9M54f/g8qbOMakVw5xJ4pjoaDy5wgy9sLLZkGdSLN52dlsBqh0tBqxjaqqa8LgPqwRAA==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -4764,7 +4782,6 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.2.1
       vue: 3.2.40
-    dev: false
 
   /vue-template-compiler/2.7.10:
     resolution: {integrity: sha512-QO+8R9YRq1Gudm8ZMdo/lImZLJVUIAM8c07Vp84ojdDAf8HmPJc7XB556PcXV218k2AkKznsRz6xB5uOjAC4EQ==}

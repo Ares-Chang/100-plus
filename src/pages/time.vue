@@ -43,3 +43,8 @@ const { toggle } = useFullscreen()
   @apply text-size-7vh font-bold
 }
 </style>
+
+<route lang="yaml">
+meta:
+  layout: spa
+</route>

@@ -4,9 +4,7 @@ document.title = 'Calendar | Ares Chang'
 </script>
 
 <template>
-  <Layout>
-    <div flex justify-center items-center>
-      <Calendar />
-    </div>
-  </Layout>
+  <div flex justify-center items-center>
+    <Calendar />
+  </div>
 </template>

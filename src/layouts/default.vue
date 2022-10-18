@@ -5,7 +5,7 @@
     </n-layout-header>
     <n-layout :native-scrollbar="false">
       <n-layout-content p-8 min-h-79vh>
-        <slot />
+        <router-view />
       </n-layout-content>
       <n-layout-footer bordered>
         <Footer />
