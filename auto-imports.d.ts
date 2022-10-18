@@ -216,6 +216,7 @@ declare global {
   const useScroll: typeof import('@vueuse/core')['useScroll']
   const useScrollLock: typeof import('@vueuse/core')['useScrollLock']
   const useSessionStorage: typeof import('@vueuse/core')['useSessionStorage']
+  const useSetTitle: typeof import('./src/composables/page')['useSetTitle']
   const useShare: typeof import('@vueuse/core')['useShare']
   const useSlots: typeof import('vue')['useSlots']
   const useSpeechRecognition: typeof import('@vueuse/core')['useSpeechRecognition']
@@ -491,6 +492,7 @@ declare module '@vue/runtime-core' {
     readonly useScroll: UnwrapRef<typeof import('@vueuse/core')['useScroll']>
     readonly useScrollLock: UnwrapRef<typeof import('@vueuse/core')['useScrollLock']>
     readonly useSessionStorage: UnwrapRef<typeof import('@vueuse/core')['useSessionStorage']>
+    readonly useSetTitle: UnwrapRef<typeof import('./src/composables/page')['useSetTitle']>
     readonly useShare: UnwrapRef<typeof import('@vueuse/core')['useShare']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSpeechRecognition: UnwrapRef<typeof import('@vueuse/core')['useSpeechRecognition']>

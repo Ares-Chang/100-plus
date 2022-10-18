@@ -1,5 +1,5 @@
 <script setup lang="ts">
-document.title = 'Clock | Ares Chang'
+useSetTitle('Time')
 
 let date = $ref('')
 let week = $ref('')

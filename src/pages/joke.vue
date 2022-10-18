@@ -1,4 +1,6 @@
 <script setup lang="ts">
+useSetTitle('Joke')
+
 interface JokeInfo {
   content: string
   updateTime: string
