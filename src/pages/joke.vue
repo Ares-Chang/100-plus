@@ -7,6 +7,7 @@ interface JokeInfo {
 }
 const message = useMessage()
 const dataList = $ref<JokeInfo[]>([])
+
 /**
  * 随机获取笑话段子列表
  */
@@ -32,19 +33,25 @@ async function getDataList() {
   }
 }
 
+let isSkeleton = $ref(true) // 是否显示骨架屏
 getDataList().then(() =>
   // 接口不支持短时间连续访问，QPS 1s
   setTimeout(() => {
     getDataList()
+    isSkeleton = false
   }, 1000),
 )
 </script>
 
 <template>
   <n-grid x-gap="14" y-gap="14" :cols="4">
-    <n-gi v-for="(item, index) in dataList" :key="index">
+    <n-gi v-for="(item, index) in isSkeleton ? Array(20).fill({}) : dataList" :key="index" min-h-40>
       <n-card h-full>
-        {{ item.content }}
+        <template v-if="isSkeleton">
+          <n-skeleton text :repeat="useRandomInt(2, 5)" />
+          <n-skeleton text :style="`width: ${useRandomInt(2, 8)}0%`" />
+        </template>
+        <span v-else>{{ item.content }}</span>
       </n-card>
     </n-gi>
   </n-grid>
