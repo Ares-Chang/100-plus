@@ -5,6 +5,14 @@
   >
     <a
       mx-2
+      icon-btn i-carbon:face-wink-filled
+      href="/joke"
+      target="_blank"
+      title="Joke"
+    />
+
+    <a
+      mx-2
       icon-btn i-carbon:time
       href="/time"
       target="_blank"
