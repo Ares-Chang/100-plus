@@ -21,6 +21,12 @@
 
 项目使用 `ESLint` 工具约定开发，请提前安装并配置。
 
+## API
+
+项目部分 API 数据由 [Roll API](https://www.mxnzp.com/doc/list) 开放接口免费提供，详情请参考 [https://www.mxnzp.com/doc/list](https://www.mxnzp.com/doc/list)。
+
+> 感谢以上接口开发者的慷慨大义，祝越办越好。
+
 ## 使用
 
 ### 开发
