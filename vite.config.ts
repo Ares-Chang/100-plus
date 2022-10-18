@@ -24,6 +24,10 @@ export default defineConfig({
     /** @see https://github.com/hannoeru/vite-plugin-pages */
     Pages({
       exclude: ['**/components/*.vue'],
+      dirs: [
+        { dir: 'src/pages', baseRoute: '' },
+        { dir: 'src/pages/calendar', baseRoute: '/' },
+      ],
     }),
     /** @see https://github.com/johncampionjr/vite-plugin-vue-layouts */
     Layouts(),
