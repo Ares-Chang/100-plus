@@ -46,7 +46,7 @@ getDataList().then(() =>
 <template>
   <n-grid x-gap="14" y-gap="14" :cols="4">
     <n-gi v-for="(item, index) in isSkeleton ? Array(20).fill({}) : dataList" :key="index" min-h-40>
-      <n-card h-full>
+      <n-card h-full embedded hoverable>
         <template v-if="isSkeleton">
           <n-skeleton text :repeat="useRandomInt(2, 5)" />
           <n-skeleton text :style="`width: ${useRandomInt(2, 8)}0%`" />
