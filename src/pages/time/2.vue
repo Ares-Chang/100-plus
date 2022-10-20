@@ -33,11 +33,11 @@ watchEffect(() => {
 
 <template>
   <div
-    h-100vh select-none
+    min-h-100vh select-none
     flex justify-center items-center
     @click="toggleFullScreen"
   >
-    <div flex gap-14>
+    <div flex="~ wrap" justify-center gap-14>
       <n-progress
         v-for="(item, index) in dataList" :key="index"
         w="80!" type="circle"
