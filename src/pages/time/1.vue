@@ -52,7 +52,9 @@ const { toggle } = useFullscreen()
         </div>
       </n-progress>
       <div text-5xl>
-        {{ meridiem }}
+        <n-gradient-text font="bold!" :type="meridiem === 'AM' ? 'warning' : 'error'">
+          {{ meridiem }}
+        </n-gradient-text>
       </div>
     </div>
   </div>
