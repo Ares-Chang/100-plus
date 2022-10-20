@@ -1,12 +1,29 @@
 <script setup lang="ts">
 useSetTitle('Clock 1')
 
-let hours = $ref('')
-let minutes = $ref('')
-let seconds = $ref('')
+const dataList = $ref([
+  {
+    label: 'HOURS',
+    status: 'error',
+    value: '',
+  },
+  {
+    label: 'MINUTES',
+    status: 'warning',
+    value: '',
+  },
+  {
+    label: 'SECONDS',
+    status: 'success',
+    value: '',
+  },
+])
 
 watchEffect(() => {
-  [hours, minutes, seconds] = useDateFormat(useNow(), 'HH:mm:ss').value.split(':')
+  const data = useDateFormat(useNow(), 'HH:mm:ss').value.split(':')
+  dataList.forEach((item, index) => {
+    item.value = data[index]
+  })
 })
 
 const { toggle } = useFullscreen()
@@ -18,30 +35,21 @@ const { toggle } = useFullscreen()
     flex justify-center items-center
     @click="toggle"
   >
-    <n-progress w="80!" type="circle" status="error" :percentage="+hours / 60 * 100">
-      <div text-center>
-        <p text-2xl font-bold>
-          {{ hours }}
-        </p>
-        <p>HOURS</p>
-      </div>
-    </n-progress>
-    <n-progress w="80!" type="circle" status="warning" :percentage="+minutes / 60 * 100">
-      <div text-center>
-        <p text-2xl font-bold>
-          {{ minutes }}
-        </p>
-        <p>MINUTES</p>
-      </div>
-    </n-progress>
-    <n-progress w="80!" type="circle" status="success" :percentage="+seconds / 60 * 100">
-      <div text-center>
-        <p text-2xl font-bold>
-          {{ seconds }}
-        </p>
-        <p>SECONDS</p>
-      </div>
-    </n-progress>
+    <div flex gap-14>
+      <n-progress
+        v-for="(item, index) in dataList" :key="index"
+        w="80!" type="circle"
+        :status="item.status as any"
+        :percentage="+item.value / 60 * 100"
+      >
+        <div text-center text-4xl>
+          <p text-8xl font-bold>
+            {{ item.value }}
+          </p>
+          <p>{{ item.label }}</p>
+        </div>
+      </n-progress>
+    </div>
   </div>
 </template>
 
