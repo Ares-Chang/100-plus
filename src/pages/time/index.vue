@@ -8,12 +8,10 @@ let time = $ref('')
 watchEffect(() => {
   [date, week, time] = useDateFormat(useNow(), 'MM-DD ddd HH:mm').value.split(' ')
 })
-
-const { toggle } = useFullscreen()
 </script>
 
 <template>
-  <div class="box" select-none @click="toggle">
+  <div class="box" select-none @click="toggleFullScreen">
     <div flex justify-center gap-10 z-1>
       <a href="https://github.com/Ares-Chang/calendar-clock" target="_blank" @click.stop>
         <span class="GitHub">GitHub</span>

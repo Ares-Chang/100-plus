@@ -1,4 +1,9 @@
 /**
+ * 点击切换网页全屏
+ */
+export const toggleFullScreen = useFullscreen().toggle
+
+/**
  * 按照格式设置页面标题
  * @param title page title
  */

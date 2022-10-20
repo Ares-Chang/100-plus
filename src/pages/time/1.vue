@@ -27,15 +27,13 @@ watchEffect(() => {
     item.value = data[index]
   })
 })
-
-const { toggle } = useFullscreen()
 </script>
 
 <template>
   <div
     h-100vh select-none
     flex justify-center items-center
-    @click="toggle"
+    @click="toggleFullScreen"
   >
     <div flex gap-14>
       <n-progress
