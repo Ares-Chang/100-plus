@@ -6,7 +6,7 @@ let week = $ref('')
 let time = $ref('')
 
 watchEffect(() => {
-  [date, week, time] = useDateFormat(useNow(), 'MM-DD ddd HH:mm ss').value.split(' ')
+  [date, week, time] = useDateFormat(useNow(), 'MM-DD ddd HH:mm').value.split(' ')
 })
 
 const { toggle } = useFullscreen()
