@@ -18,9 +18,11 @@ const dataList = $ref([
     value: '',
   },
 ])
+let meridiem = $ref('') // AM/PM
 
 watchEffect(() => {
-  const data = useDateFormat(useNow(), 'HH:mm:ss').value.split(':')
+  const [_meridiem, ...data] = useDateFormat(useNow(), 'A:HH:mm:ss').value.split(':')
+  meridiem = _meridiem
   dataList.forEach((item, index) => {
     item.value = data[index]
   })
@@ -49,6 +51,9 @@ const { toggle } = useFullscreen()
           <p>{{ item.label }}</p>
         </div>
       </n-progress>
+      <div text-5xl>
+        {{ meridiem }}
+      </div>
     </div>
   </div>
 </template>
