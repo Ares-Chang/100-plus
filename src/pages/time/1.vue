@@ -1,7 +1,11 @@
 <script setup lang="ts">
 useSetTitle('Clock 1')
 
-const dataList = $ref([
+const dataList = $ref<{
+  label: string
+  status: 'success' | 'error' | 'warning' | 'info' | 'default'
+  value: string
+}[]>([
   {
     label: 'HOURS',
     status: 'error',
@@ -39,7 +43,7 @@ watchEffect(() => {
       <n-progress
         v-for="(item, index) in dataList" :key="index"
         w="80!" type="circle"
-        :status="item.status as any"
+        :status="item.status"
         :percentage="+item.value / 60 * 100"
       >
         <div text-center text-4xl>
@@ -62,4 +66,3 @@ watchEffect(() => {
 meta:
   layout: spa
 </route>
-
