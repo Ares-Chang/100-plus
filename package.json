@@ -8,7 +8,7 @@
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest",
-    "up": "taze major -I",
+    "up": "taze major -wir",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
