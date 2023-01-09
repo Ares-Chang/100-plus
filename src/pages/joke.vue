@@ -6,7 +6,7 @@ interface JokeInfo {
   updateTime: string
 }
 const message = useMessage()
-const active = $ref(0) // 当前 key 下标
+let active = $ref(0) // 当前 key 下标
 const dataList = $ref<JokeInfo[]>([])
 let isSkeleton = $ref(true) // 是否显示骨架屏
 
@@ -37,6 +37,23 @@ async function getDataList() {
 }
 
 getDataList()
+
+/**
+ * 触发翻页
+ * @param key prev: 上一页; next: 下一页;
+ */
+function handle(key: string) {
+  if (key === 'prev') {
+    if (active <= 0)
+      return message.warning('已经第一页了呦~')
+    active--
+  }
+  else if (key === 'next') {
+    active++
+    if (active >= dataList.length - 1)
+      getDataList()
+  }
+}
 </script>
 
 <template>
@@ -49,16 +66,10 @@ getDataList()
       <span v-else>{{ dataList[active]?.content }}</span>
       <template #action>
         <div flex justify-between>
-          <n-button text text-24px="!" @click="active > 0 && active--">
+          <n-button text text-24px="!" @click="handle('prev')">
             <i i-carbon-chevron-left />
           </n-button>
-          <n-button
-            text
-            text-24px="!"
-            @click="
-              active++;
-              active >= dataList.length - 1 && getDataList()"
-          >
+          <n-button text text-24px="!" @click="handle('next')">
             <i i-carbon-chevron-right />
           </n-button>
         </div>
