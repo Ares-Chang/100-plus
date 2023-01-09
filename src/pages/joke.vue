@@ -49,10 +49,16 @@ getDataList()
       <span v-else>{{ dataList[active]?.content }}</span>
       <template #action>
         <div flex justify-between>
-          <n-button text text-24px="!">
+          <n-button text text-24px="!" @click="active > 0 && active--">
             <i i-carbon-chevron-left />
           </n-button>
-          <n-button text text-24px="!">
+          <n-button
+            text
+            text-24px="!"
+            @click="
+              active++;
+              active >= dataList.length - 1 && getDataList()"
+          >
             <i i-carbon-chevron-right />
           </n-button>
         </div>
