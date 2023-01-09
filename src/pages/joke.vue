@@ -6,7 +6,9 @@ interface JokeInfo {
   updateTime: string
 }
 const message = useMessage()
+const active = $ref(0) // 当前 key 下标
 const dataList = $ref<JokeInfo[]>([])
+let isSkeleton = $ref(true) // 是否显示骨架屏
 
 /**
  * 随机获取笑话段子列表
@@ -27,32 +29,34 @@ async function getDataList() {
       throw code
 
     dataList.push(...data)
+    setTimeout(() => isSkeleton = false, 800)
   }
   catch (error) {
     message.error('啊哦 ~ 数据好像走丢了')
   }
 }
 
-let isSkeleton = $ref(true) // 是否显示骨架屏
-getDataList().then(() =>
-  // 接口不支持短时间连续访问，QPS 1s
-  setTimeout(() => {
-    getDataList()
-    isSkeleton = false
-  }, 1000),
-)
+getDataList()
 </script>
 
 <template>
-  <n-grid x-gap="14" y-gap="14" :cols="4">
-    <n-gi v-for="(item, index) in isSkeleton ? Array(20).fill({}) : dataList" :key="index" min-h-40>
-      <n-card h-full embedded hoverable>
-        <template v-if="isSkeleton">
-          <n-skeleton text :repeat="useRandomInt(2, 5)" />
-          <n-skeleton text :style="`width: ${useRandomInt(2, 8)}0%`" />
-        </template>
-        <span v-else>{{ item.content }}</span>
-      </n-card>
-    </n-gi>
-  </n-grid>
+  <div h-hull flex justify-center items-center>
+    <n-card w="50%!" h-60vh embedded hoverable>
+      <template v-if="isSkeleton">
+        <n-skeleton text :repeat="useRandomInt(2, 5)" />
+        <n-skeleton text :style="`width: ${useRandomInt(2, 8)}0%`" />
+      </template>
+      <span v-else>{{ dataList[active]?.content }}</span>
+      <template #action>
+        <div flex justify-between>
+          <n-button text text-24px="!">
+            <i i-carbon-chevron-left />
+          </n-button>
+          <n-button text text-24px="!">
+            <i i-carbon-chevron-right />
+          </n-button>
+        </div>
+      </template>
+    </n-card>
+  </div>
 </template>
