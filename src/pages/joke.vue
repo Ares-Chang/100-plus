@@ -14,6 +14,7 @@ let isSkeleton = $ref(true) // 是否显示骨架屏
  * 随机获取笑话段子列表
  */
 async function getDataList() {
+  isSkeleton = true
   try {
     const {
       data: {
