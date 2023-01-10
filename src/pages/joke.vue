@@ -99,7 +99,7 @@ document.addEventListener('keydown', ({ code }) => {
           <n-gradient-text type="warning">
             按下键盘左右键或
             <code color="#f1b85c" bg="#f1f1f1" dark:bg="#3a3a3a" text="0.8rem" p="y-0.5 x-1.4" border-rd-1 m-1>click</code>
-            翻页操作
+            进行翻页操作
           </n-gradient-text>
           <n-button text text-24px="!" @click="handle('next')">
             <i i-carbon-chevron-right />
