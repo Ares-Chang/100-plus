@@ -63,8 +63,14 @@ function handle(key: string) {
  */
 const KeyboardCodeList = new Map([
   ['Space', 'next'],
-  ['ArrowRight', 'next'],
+  ['ArrowUp', 'prev'],
+  ['ArrowDown', 'next'],
   ['ArrowLeft', 'prev'],
+  ['ArrowRight', 'next'],
+  ['KeyA', 'prev'],
+  ['KeyD', 'next'],
+  ['KeyW', 'prev'],
+  ['KeyS', 'next'],
 ])
 /**
  * 绑定键盘事件
