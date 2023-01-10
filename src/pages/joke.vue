@@ -57,6 +57,21 @@ function handle(key: string) {
       getDataList()
   }
 }
+
+const codeList = new Map([
+  ['Space', 'next'],
+  ['ArrowRight', 'next'],
+  ['ArrowLeft', 'prev'],
+])
+/**
+ * 绑定键盘事件
+ */
+document.addEventListener('keydown', ({ code }) => {
+  const key = codeList.get(code)
+  if (!key)
+    return
+  handle(key)
+})
 </script>
 
 <template>
