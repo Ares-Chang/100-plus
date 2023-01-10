@@ -58,7 +58,10 @@ function handle(key: string) {
   }
 }
 
-const codeList = new Map([
+/**
+ * 绑定键盘交互类型
+ */
+const KeyboardCodeList = new Map([
   ['Space', 'next'],
   ['ArrowRight', 'next'],
   ['ArrowLeft', 'prev'],
@@ -67,7 +70,7 @@ const codeList = new Map([
  * 绑定键盘事件
  */
 document.addEventListener('keydown', ({ code }) => {
-  const key = codeList.get(code)
+  const key = KeyboardCodeList.get(code)
   if (!key)
     return
   handle(key)
