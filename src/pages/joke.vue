@@ -51,7 +51,9 @@ function handle(key: string) {
   }
   else if (key === 'next') {
     active++
-    if (active >= dataList.length - 1)
+    if (isSkeleton)
+      return message.warning('请稍等，数据加载中！')
+    else if (active >= dataList.length - 1)
       getDataList()
   }
 }
