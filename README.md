@@ -1,4 +1,4 @@
-# 100 Plus
+# 100 Plus [![Netlify Status](https://api.netlify.com/api/v1/badges/091a13ad-bef8-4a0a-8024-eca3149f35c6/deploy-status)](https://app.netlify.com/sites/comforting-sunburst-cd6bfb/deploys)
 
 100+ 个奇思妙想 Idea 的实现仓库
 
