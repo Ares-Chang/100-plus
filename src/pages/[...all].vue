@@ -15,8 +15,3 @@
     </n-card>
   </div>
 </template>
-
-<route lang="yaml">
-meta:
-  layout: spa
-</route>

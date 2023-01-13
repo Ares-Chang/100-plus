@@ -109,3 +109,8 @@ document.addEventListener('keydown', ({ code }) => {
     </n-card>
   </div>
 </template>
+
+<route lang="yaml">
+meta:
+  layout: home
+</route>

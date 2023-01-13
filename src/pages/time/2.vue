@@ -59,8 +59,3 @@ watchEffect(() => {
     </div>
   </div>
 </template>
-
-<route lang="yaml">
-meta:
-  layout: spa
-</route>

@@ -9,8 +9,3 @@ const num = useRandomInt(1, 2)
 <template>
   <iframe w-100vw h-100vh :src="`/time/${num}`" frameborder="0" />
 </template>
-
-<route lang="yaml">
-meta:
-  layout: spa
-</route>
