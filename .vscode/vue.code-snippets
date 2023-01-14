@@ -6,7 +6,7 @@
       "$1",
       "</script>\n",
       "<template>",
-      "  <div class=\"$2\">$0</div>",
+      "  <div>$0</div>",
       "</template>\n",
     ],
     "description": "Vue3.2+"
