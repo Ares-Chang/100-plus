@@ -1,12 +1,20 @@
 <script setup lang="ts">
+import Setting from './Setting.vue'
 const text = ref('我是一段很长很长的文字，你看我长不长')
+const show = ref(false)
 </script>
 
 <template>
-  <div bg-black w-100vw h-100vh flex justify-center items-center overflow-hidden>
+  <div
+    bg-black w-100vw h-100vh
+    flex justify-center items-center
+    overflow-hidden
+    @click="show = true"
+  >
     <div class="LoopText">
       {{ text }}
     </div>
+    <Setting v-model:show="show" />
   </div>
 </template>
 
