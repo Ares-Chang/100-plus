@@ -26,7 +26,7 @@ const show = ref(false)
 }
 @keyframes LoopText {
   0% {
-    transform: rotate(90deg) translateX(0px);
+    transform: rotate(90deg) translateX(100%);
   }
   100% {
     transform: rotate(90deg) translateX(-100%);
