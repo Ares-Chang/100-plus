@@ -4,17 +4,13 @@ const { show } = defineProps<{
   show: boolean
 }>()
 const emit = defineEmits(['update:text', 'update:show'])
-let _show = $ref(show)
-
-// 监听组件开启关闭
-watchEffect(() => _show = show)
 </script>
 
 <template>
   <n-drawer
-    v-model:show="_show"
+    :show="show"
     placement="bottom"
-    @after-leave="emit('update:show', false)"
+    @update:show="emit('update:show', false)"
   >
     <n-drawer-content title="Setting" closable>
       <n-input
