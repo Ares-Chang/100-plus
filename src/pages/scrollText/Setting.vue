@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const { show } = defineProps<{
+  text: string
   show: boolean
 }>()
-const emit = defineEmits(['update:show'])
+const emit = defineEmits(['update:text', 'update:show'])
 let _show = $ref(show)
 
 // 监听组件开启关闭
@@ -15,8 +16,12 @@ watchEffect(() => _show = show)
     placement="bottom"
     @after-leave="emit('update:show', false)"
   >
-    <n-drawer-content title="斯通纳" closable>
-      《斯通纳》是美国作家约翰·威廉姆斯在 1965 年出版的小说。
+    <n-drawer-content title="Setting" closable>
+      <n-input
+        :value="text" type="text"
+        placeholder="在这里输入要显示文字哦~"
+        @input="emit('update:text', $event)"
+      />
     </n-drawer-content>
   </n-drawer>
 </template>

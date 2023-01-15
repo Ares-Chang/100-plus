@@ -14,7 +14,7 @@ const show = ref(false)
     <div class="LoopText">
       {{ text }}
     </div>
-    <Setting v-model:show="show" />
+    <Setting v-model:text="text" v-model:show="show" />
   </div>
 </template>
 
