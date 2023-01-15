@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import Setting from './Setting.vue'
+import type { ConfigProps } from '@/types/ScrollText'
+
 const text = ref('点击这里输入要显示文字哦~')
 const show = ref(false)
-const config = ref({
+const config = ref<ConfigProps>({
   color: 'while',
 })
 </script>

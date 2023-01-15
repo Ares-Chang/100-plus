@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import type { ConfigProps } from '@/types/ScrollText'
+
 const { show } = defineProps<{
   text: string
   show: boolean
-  config: {
-    color: string
-  }
+  config: ConfigProps
 }>()
 const emit = defineEmits(['update:text', 'update:show', 'update:config'])
 
