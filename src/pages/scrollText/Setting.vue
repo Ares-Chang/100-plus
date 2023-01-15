@@ -19,7 +19,6 @@ watchEffect(() => _show = show)
     <n-drawer-content title="Setting" closable>
       <n-input
         :value="text" type="text"
-        placeholder="在这里输入要显示文字哦~"
         @input="emit('update:text', $event)"
       />
     </n-drawer-content>

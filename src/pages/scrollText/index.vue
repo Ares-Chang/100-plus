@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Setting from './Setting.vue'
-const text = ref('我是一段很长很长的文字，你看我长不长')
+const text = ref('在这里输入要显示文字哦~')
 const show = ref(false)
 </script>
 
