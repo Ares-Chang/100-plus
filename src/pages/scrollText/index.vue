@@ -2,6 +2,9 @@
 import Setting from './Setting.vue'
 const text = ref('点击这里输入要显示文字哦~')
 const show = ref(false)
+const config = ref({
+  color: 'while',
+})
 </script>
 
 <template>
@@ -14,13 +17,18 @@ const show = ref(false)
     <div class="LoopText">
       {{ text }}
     </div>
-    <Setting v-model:text="text" v-model:show="show" />
+    <Setting
+      v-model:text="text"
+      v-model:show="show"
+      v-model:config="config"
+    />
   </div>
 </template>
 
 <style scoped>
 .LoopText {
   @apply text-8xl;
+  color: v-bind(config.color);
   white-space: nowrap;
   animation: 4s LoopText linear infinite normal;
 }
