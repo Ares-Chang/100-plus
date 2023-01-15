@@ -15,7 +15,7 @@ const emit = defineEmits(['update:text', 'update:show'])
     <n-drawer-content title="Setting" closable>
       <n-input
         :value="text" type="text"
-        @input="emit('update:text', $event)"
+        @update:value="emit('update:text', $event)"
       />
     </n-drawer-content>
   </n-drawer>
