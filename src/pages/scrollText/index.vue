@@ -16,7 +16,7 @@ const config = ref<ConfigProps>({
     overflow-hidden
     @click="show = true"
   >
-    <div class="LoopText">
+    <div :class="`LoopText color-${config.color}`">
       {{ text }}
     </div>
     <Setting
@@ -30,7 +30,6 @@ const config = ref<ConfigProps>({
 <style scoped>
 .LoopText {
   @apply text-8xl;
-  color: v-bind(config.color);
   white-space: nowrap;
   animation: 4s LoopText linear infinite normal;
 }

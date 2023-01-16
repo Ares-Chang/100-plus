@@ -8,7 +8,10 @@ declare global {
   const $ref: typeof import('vue/macros')['$ref']
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
+  const BGColortList: typeof import('./src/composables/color')['BGColortList']
+  const ColorList: typeof import('./src/composables/color')['ColorList']
   const EffectScope: typeof import('vue')['EffectScope']
+  const TextColorList: typeof import('./src/composables/color')['TextColorList']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
   const computed: typeof import('vue')['computed']
@@ -293,7 +296,10 @@ declare module 'vue' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
+    readonly BGColortList: UnwrapRef<typeof import('./src/composables/color')['BGColortList']>
+    readonly ColorList: UnwrapRef<typeof import('./src/composables/color')['ColorList']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly TextColorList: UnwrapRef<typeof import('./src/composables/color')['TextColorList']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
