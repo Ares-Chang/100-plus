@@ -24,6 +24,7 @@ export default defineConfig({
 
     /** @see https://github.com/hannoeru/vite-plugin-pages */
     Pages({
+      extensions: ['vue', 'ts', 'js', 'tsx', 'jsx'],
       exclude: ['**/components/*.vue'],
       dirs: [
         { dir: 'src/pages', baseRoute: '' },
