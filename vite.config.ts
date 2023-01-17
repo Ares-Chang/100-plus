@@ -4,6 +4,7 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -61,6 +62,12 @@ export default defineConfig({
      * see unocss.config.ts for config
      */
     Unocss(),
+
+    /**
+     * JSX 配置
+     * @see https://github.com/vitejs/vite-plugin-vue
+     */
+    VueJsx(),
   ],
 
   /** @see https://github.com/vitest-dev/vitest */
