@@ -41,7 +41,7 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
             i-carbon-checkmark-filled
             icon-btn text-lg
             :class="{
-              'color-green': item === 'white',
+              'color-green': ['white', 'black'].includes(item),
             }"
           />
         </div>
