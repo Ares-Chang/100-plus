@@ -55,7 +55,7 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
           w-8 h-8
           flex-shrink-0
           :class="{
-            'color-green': config.speed.includes(String(item)),
+            'color-green': config.speed === `${item}s`,
           }"
           @click="emit('update:config', { ...config, speed: `${item}s` })"
         >
