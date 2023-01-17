@@ -36,6 +36,19 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
           @click="emit('update:config', { ...config, color: item })"
         />
       </div>
+      <p my-2>
+        速度
+      </p>
+      <div flex gap-2 text-center overflow-auto>
+        <div
+          v-for="item in Array.from({ length: 20 }, (_, index) => 0.5 * (index + 1))" :key="item"
+          w-8 h-8
+          flex-shrink-0
+          @click="emit('update:config', { ...config, speed: `${item}s` })"
+        >
+          {{ item }}
+        </div>
+      </div>
     </n-drawer-content>
   </n-drawer>
 </template>

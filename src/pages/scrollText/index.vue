@@ -6,6 +6,7 @@ const text = ref('点击这里输入要显示文字哦~')
 const show = ref(false)
 const config = ref<ConfigProps>({
   color: 'while',
+  speed: '4s',
 })
 </script>
 
@@ -31,7 +32,7 @@ const config = ref<ConfigProps>({
 .LoopText {
   @apply text-8xl;
   white-space: nowrap;
-  animation: 4s LoopText linear infinite normal;
+  animation: v-bind(config.speed) LoopText linear infinite normal;
 }
 @keyframes LoopText {
   0% {
