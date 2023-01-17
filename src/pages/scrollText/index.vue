@@ -5,7 +5,7 @@ import type { ConfigProps } from '@/types/ScrollText'
 const text = ref('点击这里输入要显示文字哦~')
 const show = ref(false)
 const config = ref<ConfigProps>({
-  color: 'while',
+  color: 'white',
   speed: '4s',
 })
 </script>
