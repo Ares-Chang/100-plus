@@ -25,7 +25,7 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
         @update:value="emit('update:text', $event)"
       />
       <p my-2>
-        字体颜色
+        文字颜色
       </p>
       <div flex="~ wrap" gap-2>
         <div
@@ -37,7 +37,7 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
         />
       </div>
       <p my-2>
-        速度
+        动画速度
       </p>
       <div flex gap-2 text-center overflow-auto>
         <div
