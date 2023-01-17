@@ -8,6 +8,7 @@ const config = ref<ConfigProps>({
   color: 'white',
   speed: '4s',
 })
+useStorage('scroll-text-config', config) // 持久化存储
 </script>
 
 <template>
