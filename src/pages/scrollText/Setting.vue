@@ -27,7 +27,7 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
       <p my-2>
         字体颜色
       </p>
-      <div flex gap-2 overflow-auto>
+      <div flex="~ wrap" gap-2>
         <div
           v-for="(item, index) in ColorList" :key="index"
           w-8 h-8
