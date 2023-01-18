@@ -7,6 +7,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx'
 import { BGColortList, TextColorList } from './src/composables/color'
 
 export default defineConfig({
@@ -35,6 +36,7 @@ export default defineConfig({
     }),
   ],
   transformers: [
+    transformerAttributifyJsx(), // 该插件有加顺序问题，须写在第一位
     transformerDirectives(),
     transformerVariantGroup(),
   ],
