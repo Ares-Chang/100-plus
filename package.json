@@ -21,7 +21,7 @@
     "@iconify-json/carbon": "^1.1.13",
     "@types/node": "18.11.18",
     "@unocss/reset": "^0.48.3",
-    "@unocss/transformer-attributify-jsx": "^0.48.4",
+    "@unocss/transformer-attributify-jsx": "^0.48.3",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vue/test-utils": "^2.2.7",
