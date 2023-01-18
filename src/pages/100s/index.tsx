@@ -18,7 +18,7 @@ export default defineComponent({
             <div>不是哥吹，一把就过！</div>
             <div>最佳成绩 <span color-orange>9:991</span></div>
           </div>
-          <div p-13 rd="50%" bg-white color-black>开始</div>
+          <div p-13 rd="50%" bg="dark:white black" color="dark:black white">开始</div>
         </div>
       </div>
     )
