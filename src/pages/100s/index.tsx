@@ -27,7 +27,7 @@ export default defineComponent({
           </button>
         </div>
         <div flex="~ col" justify-center items-center>
-          <div text-6xl>{ time }</div>
+          <div text-6xl>{ (time / 1000).toFixed(3).replace('.', ':')}</div>
           <div my-24 text-center>
             <div>不是哥吹，一把就过！</div>
             <div>最佳成绩 <span color-orange>9:991</span></div>
