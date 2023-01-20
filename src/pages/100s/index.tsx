@@ -4,6 +4,11 @@ export default defineComponent({
     let start = $ref(0)
     const now = $(useNow())
 
+    /**
+     * 核心块逻辑：
+     * 通过时间戳更新来规则定时器最小延迟问题
+     * 时间戳更新，判断是记录有开始时间，如有进行计算绝对值差值
+     */
     watch(() => now, () => {
       if (!start)
         return
