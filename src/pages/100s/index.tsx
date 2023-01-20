@@ -6,6 +6,11 @@ export default defineComponent({
     function handleBtn() {
       if (!timer) {
         time = 0
+        /**
+         * FIXME: This should 1ms timeout trigger one add, but it doesn't
+         * @see reference {@link https://stackoverflow.com/questions/40752982/setinterval-at-1ms-doesnt-seem-to-actually-be-1ms}
+         * @see cause {@link https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage}
+         */
         timer = setInterval(() => time++, 1)
       }
       else {
