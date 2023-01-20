@@ -3,6 +3,9 @@ export default defineComponent({
     let time = $ref(0)
     let start = $ref(0)
     const now = $(useNow())
+    const btnText = $computed(() => {
+      return start ? '停止' : time ? '复位' : '开始'
+    })
 
     /**
      * 核心块逻辑：
@@ -16,10 +19,12 @@ export default defineComponent({
     })
 
     function handleBtn() {
-      if (!start)
+      if (!start) {
+        if (time)
+          return time = 0
         start = now.getTime()
-      else
-        start = 0
+      }
+      else { start = 0 }
     }
 
     return () => (
@@ -45,7 +50,7 @@ export default defineComponent({
             bg="dark:white black"
             color="dark:black white"
             onClick={handleBtn}>
-            { start ? '停止' : '开始' }
+            { btnText }
           </div>
         </div>
       </div>
