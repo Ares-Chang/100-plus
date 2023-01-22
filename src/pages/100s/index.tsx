@@ -33,6 +33,15 @@ export default defineComponent({
       }
     }
 
+    /**
+     * 获取格式化显示时间
+     * @param time 时间
+     * @returns 格式化时间 { 10:000 }
+     */
+    function getFormattingTime(time: number) {
+      return (time / 1000).toFixed(3).replace('.', ':')
+    }
+
     return () => (
       <div h-100vh flex="~ col">
         <div text-right p-2 mb-2>
@@ -46,10 +55,10 @@ export default defineComponent({
           </button>
         </div>
         <div flex="~ col" justify-center items-center>
-          <div text-6xl style="letter-spacing: 8px">{ (time / 1000).toFixed(3).replace('.', ':')}</div>
+          <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time) }</div>
           <div my-24 text-center>
             <div>不是哥吹，一把就过！</div>
-            <div>最佳成绩 <span color-orange>{ (best / 1000).toFixed(3).replace('.', ':') }</span></div>
+            <div>最佳成绩 <span color-orange>{ getFormattingTime(best) }</span></div>
           </div>
           <div
             p-13 rd="50%"
