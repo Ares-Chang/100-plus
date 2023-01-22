@@ -1,5 +1,7 @@
 export default defineComponent({
   setup() {
+    const base = 10000 // 最佳 10s 对比基数
+    let best = $(useStorage('100s', 0)) // 存储最佳成绩
     let time = $ref(0)
     let start = $ref(0)
     const now = $(useNow())
@@ -24,7 +26,11 @@ export default defineComponent({
           return time = 0
         start = now.getTime()
       }
-      else { start = 0 }
+      else {
+        start = 0
+        if (Math.abs(time - base) <= Math.abs(best - base))
+          best = time
+      }
     }
 
     return () => (
@@ -43,7 +49,7 @@ export default defineComponent({
           <div text-6xl style="letter-spacing: 8px">{ (time / 1000).toFixed(3).replace('.', ':')}</div>
           <div my-24 text-center>
             <div>不是哥吹，一把就过！</div>
-            <div>最佳成绩 <span color-orange>9:991</span></div>
+            <div>最佳成绩 <span color-orange>{ (best / 1000).toFixed(3).replace('.', ':') }</span></div>
           </div>
           <div
             p-13 rd="50%"
