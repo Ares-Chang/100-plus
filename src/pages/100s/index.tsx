@@ -9,6 +9,14 @@ export default defineComponent({
       return start ? '停止' : time ? '复位' : '开始'
     })
 
+    const tipList = [
+      '不是哥吹，一把就过！',
+      '你行不行呀，细狗~',
+      '就差一点儿就成功了！',
+      '你与成功的距离就差一点儿~',
+      '我在这儿等着你成功~'
+    ]
+
     /**
      * 核心块逻辑：
      * 通过时间戳更新来规则定时器最小延迟问题
@@ -57,7 +65,7 @@ export default defineComponent({
         <div flex="~ col" justify-center items-center>
           <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time) }</div>
           <div my-24 text-center>
-            <div>不是哥吹，一把就过！</div>
+            <div>{ tipList[0] }</div>
             <div>最佳成绩 <span color-orange>{ getFormattingTime(best) }</span></div>
           </div>
           <div
