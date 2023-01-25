@@ -14,7 +14,7 @@ export default defineComponent({
       '你行不行呀，细狗~',
       '就差一点儿就成功了！',
       '你与成功的距离就差一点儿~',
-      '我在这儿等着你成功~'
+      '我在这儿等着你成功~',
     ]
 
     /**
@@ -65,7 +65,7 @@ export default defineComponent({
         <div flex="~ col" justify-center items-center>
           <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time) }</div>
           <div my-24 text-center>
-            <div>{ tipList[0] }</div>
+            <div>{ tipList[useRandomInt(0, tipList.length - 1)] }</div>
             <div>最佳成绩 <span color-orange>{ getFormattingTime(best) }</span></div>
           </div>
           <div
