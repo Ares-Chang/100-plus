@@ -65,7 +65,7 @@ export default defineComponent({
         <div flex="~ col" justify-center items-center>
           <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time) }</div>
           <div my-24 text-center>
-            <div>{ time === 10000 ? 'Win!' : tipList[useRandomInt(0, tipList.length - 1)] }</div>
+            <div>{ time === 10000 ? '喜提大奖，不买彩票可惜了~' : tipList[useRandomInt(0, tipList.length - 1)] }</div>
             <div>最佳成绩 <span color-orange>{ getFormattingTime(best) }</span></div>
           </div>
           <div
