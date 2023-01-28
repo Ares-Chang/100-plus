@@ -16,6 +16,12 @@ export default defineComponent({
       '你与成功的距离就差一点儿~',
       '我在这儿等着你成功~',
     ]
+    const tipText: string = $computed(() => {
+      let text = tipList[useRandomInt(0, tipList.length - 1)]
+      if (time === 10000)
+        text = '喜提大奖，不买彩票可惜了~'
+      return btnText === '复位' ? text : tipText
+    })
 
     /**
      * 核心块逻辑：
@@ -65,7 +71,7 @@ export default defineComponent({
         <div flex="~ col" justify-center items-center>
           <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time) }</div>
           <div my-24 text-center>
-            <div>{ time === 10000 ? '喜提大奖，不买彩票可惜了~' : tipList[useRandomInt(0, tipList.length - 1)] }</div>
+            <div>{ tipText }</div>
             <div>最佳成绩 <span color-orange>{ getFormattingTime(best) }</span></div>
           </div>
           <div
