@@ -20,7 +20,7 @@ export default defineComponent({
       let text = tipList[useRandomInt(0, tipList.length - 1)]
       if (time === 10000)
         text = '喜提大奖，不买彩票可惜了~'
-      return btnText === '复位' ? text : tipText
+      return btnText === '复位' ? text : (tipText || text)
     })
 
     /**
