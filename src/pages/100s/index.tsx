@@ -2,9 +2,12 @@ export default defineComponent({
   setup() {
     const base = 10000 // 最佳 10s 对比基数
     let best = $(useStorage('100s', 0)) // 存储最佳成绩
-    let time = $ref(0)
-    let start = $ref(0)
-    const now = $(useNow())
+    let time = $ref(0) // 存储当局时间
+    let start = $ref(0) // 存储点击开始时间
+    const now = $(useNow()) // 当前时间戳，用于驱动数据更新
+    /**
+     * 按钮显示文字
+     */
     const btnText = $computed(() => {
       return start ? '停止' : time ? '复位' : '开始'
     })
@@ -16,6 +19,9 @@ export default defineComponent({
       '你与成功的距离就差一点儿~',
       '我在这儿等着你成功~',
     ]
+    /**
+     * tip 显示文字
+     */
     const tipText: string = $computed(() => {
       let text = tipList[useRandomInt(0, tipList.length - 1)]
       if (time === 10000)
