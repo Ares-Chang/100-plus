@@ -25,6 +25,7 @@
     "@unocss/transformer-attributify-jsx": "^0.50.1",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "@vue-macros/reactivity-transform": "^0.2.4",
     "@vue/test-utils": "^2.3.0",
     "eslint": "^8.34.0",
     "jsdom": "^21.1.0",
