@@ -12,13 +12,7 @@
   status = 200
 
 [[redirects]]
-  from = "https://time.areschang.top"
-  to = "/time"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "https://clock.areschang.top/time"
-  to = "https://time.areschang.top/time"
-  status = 200
+  from = "https://time.areschang.top/*"
+  to = "https://time.areschang.top/time/:splat"
+  status = 302
   force = true
