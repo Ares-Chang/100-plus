@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import path from 'path'
+import path from 'node:path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
@@ -35,7 +35,6 @@ export default defineConfig({
       exclude: ['**/components/*.vue'],
       dirs: [
         { dir: 'src/pages', baseRoute: '' },
-        { dir: 'src/pages/calendar', baseRoute: '/' },
       ],
     }),
     /** @see https://github.com/johncampionjr/vite-plugin-vue-layouts */
