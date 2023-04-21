@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Days } from '@/types/Calendar'
+
 const { show, data } = defineProps<{
   show: boolean
   data: Days
