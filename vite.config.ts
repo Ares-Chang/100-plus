@@ -4,38 +4,52 @@ import path from 'node:path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
+import VueJsx from '@vitejs/plugin-vue-jsx'
+import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import UnoCSS from 'unocss/vite'
-
-// @ts-expect-error failed to resolve types
-import VueMacros from 'unplugin-vue-macros/vite'
+import Unocss from 'unocss/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
 
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
   plugins: [
-    VueMacros({
-      plugins: {
-        vue: Vue({
-          reactivityTransform: true,
-        }),
-      },
+    Vue(),
+
+    /**
+     * reactivityTransform 已于 Vue 3.3 版本被标记为已弃用，Vue 3.4 版本于核心包中移除
+     * 详情参见 @see https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028
+     * 现已在 Vue Macros 外部实现
+     * {@link 文档 https://vue-macros.sxzz.moe/features/reactivity-transform.html}
+     */
+    ReactivityTransform(),
+
+    /** @see https://github.com/hannoeru/vite-plugin-pages */
+    Pages({
+      extensions: ['vue', 'ts', 'js', 'tsx', 'jsx'],
+      exclude: ['**/components/*.vue'],
+      dirs: [
+        { dir: 'src/pages', baseRoute: '' },
+      ],
     }),
+    /** @see https://github.com/johncampionjr/vite-plugin-vue-layouts */
+    Layouts(),
 
-    // https://github.com/hannoeru/vite-plugin-pages
-    Pages(),
-
-    // https://github.com/antfu/unplugin-auto-import
+    /** @see https://github.com/antfu/unplugin-auto-import */
     AutoImport({
       imports: [
         'vue',
         'vue/macros',
         'vue-router',
         '@vueuse/core',
+        {
+          'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
+        },
       ],
       dts: true,
       dirs: [
@@ -44,17 +58,26 @@ export default defineConfig({
       vueTemplate: true,
     }),
 
-    // https://github.com/antfu/vite-plugin-components
+    /** @see https://github.com/antfu/vite-plugin-components */
     Components({
       dts: true,
+      resolvers: [NaiveUiResolver()],
     }),
 
-    // https://github.com/antfu/unocss
-    // see uno.config.ts for config
-    UnoCSS(),
+    /**
+     * @see https://github.com/antfu/unocss
+     * see unocss.config.ts for config
+     */
+    Unocss(),
+
+    /**
+     * JSX 配置
+     * @see https://github.com/vitejs/vite-plugin-vue
+     */
+    VueJsx(),
   ],
 
-  // https://github.com/vitest-dev/vitest
+  /** @see https://github.com/vitest-dev/vitest */
   test: {
     environment: 'jsdom',
   },
