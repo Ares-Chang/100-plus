@@ -52,11 +52,12 @@ const list = [
 </script>
 
 <template>
-  <div>
-    <div v-for="item in list" :key="item.name">
-      <div>{{ item.name }}</div>
-      <div>{{ item.link }}</div>
-    </div>
+  <div flex="~ wrap" gap-6>
+    <a v-for="item in list" :key="item.name" :href="item.link" target="_blank" w-80 h-60 all:transition-400 p-3 bg-gray-600>
+      <div text-center font-bold>
+        {{ item.name }}
+      </div>
+    </a>
   </div>
 </template>
 
