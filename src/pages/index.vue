@@ -53,7 +53,14 @@ const list = [
 
 <template>
   <div flex="~ wrap" gap-6>
-    <a v-for="item in list" :key="item.name" :href="item.link" target="_blank" w-80 h-60 all:transition-400 p-3 bg-gray-600>
+    <a
+      v-for="item in list" :key="item.name"
+      :href="item.link" target="_blank"
+      w-80 h-60 p-3 bg-gray-600
+      shadow="~ pink"
+      transition-all-400
+      hover="translate-y--2 shadow-xl"
+    >
       <div text-center font-bold>
         {{ item.name }}
       </div>
