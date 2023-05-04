@@ -1,12 +1,16 @@
 <script setup lang="ts">
 interface Saying {
   text: string
+  source: string
   author: string
+  explain: string
 }
 
 const obj = ref<Saying>({
   text: '',
+  source: '',
   author: '',
+  explain: '',
 })
 
 async function getDataList() {
@@ -24,7 +28,8 @@ getDataList()
       <div>{{ obj.text }}</div>
       <div text-right mt-2>
         <span>——</span>
-        <span ml-3>{{ obj.author }}</span>
+        <span>{{ obj.source }}</span>
+        <span>{{ obj.author }}</span>
       </div>
     </div>
   </div>
