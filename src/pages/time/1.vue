@@ -11,7 +11,7 @@ watchEffect(() => {
 <template>
   <div class="box" select-none @click="toggleFullScreen">
     <div flex justify-center gap-10 z-1>
-      <a href="https://github.com/Ares-Chang/calendar-clock" target="_blank" @click.stop>
+      <a href="https://github.com/Ares-Chang/100-plus" target="_blank" @click.stop>
         <span class="GitHub">GitHub</span>
       </a>
       <Logo />
