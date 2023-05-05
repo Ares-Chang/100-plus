@@ -52,7 +52,7 @@ const list = [
 </script>
 
 <template>
-  <div flex="~ wrap" gap-6>
+  <div flex="~ wrap" justify-around gap-6>
     <a
       v-for="item in list" :key="item.name"
       :href="item.link" target="_blank"
