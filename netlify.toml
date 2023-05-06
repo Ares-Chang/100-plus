@@ -10,9 +10,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[redirects]]
-  from = "https://time.areschang.top/*"
-  to = "https://time.areschang.top/time/:splat"
-  status = 302
-  force = true
