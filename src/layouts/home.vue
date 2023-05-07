@@ -4,7 +4,7 @@
       <NavBar />
     </n-layout-header>
     <n-layout :native-scrollbar="false">
-      <n-layout-content p-8 h="[calc(100vh-56px)]">
+      <n-layout-content p-8 h-100vh>
         <router-view />
       </n-layout-content>
       <n-layout-footer bordered>
