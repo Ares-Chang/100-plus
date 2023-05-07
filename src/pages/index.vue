@@ -52,19 +52,29 @@ const list = [
 </script>
 
 <template>
-  <div flex="~ wrap" gap-6>
-    <a
-      v-for="item in list" :key="item.name"
-      :href="item.link" target="_blank"
-      w-80 h-60 p-3 bg-gray-600
-      shadow="~ pink"
-      transition-all-400
-      hover="translate-y--2 shadow-xl"
-    >
-      <div text-center font-bold>
-        {{ item.name }}
+  <div h-full overflow-hidden>
+    <div>
+      <div text-3xl font-bold>
+        Projects
       </div>
-    </a>
+      <p op-50 italic my-1>
+        Some of my little toys
+      </p>
+    </div>
+    <div flex="~ wrap" gap-6 mt-6>
+      <a
+        v-for="item in list" :key="item.name"
+        :href="item.link" target="_blank"
+        w-80 h-60 p-3 bg-gray-600
+        shadow="~ pink"
+        transition-all-400
+        hover="translate-y--2 shadow-xl"
+      >
+        <div text-center font-bold>
+          {{ item.name }}
+        </div>
+      </a>
+    </div>
   </div>
 </template>
 
