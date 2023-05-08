@@ -52,7 +52,7 @@ const list = [
 </script>
 
 <template>
-  <div h-full overflow-hidden>
+  <div h-full>
     <div>
       <div text-3xl font-bold>
         Projects
