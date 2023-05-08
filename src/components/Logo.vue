@@ -1,6 +1,6 @@
 <template>
   <a href="https://areschang.top" target="_blank" @click.stop>
-    <span class="AresChang" text-2xl font-bold>Ares Chang</span>
+    <span class="AresChang" text-2xl font="windsong bold">AresChang</span>
   </a>
 </template>
 

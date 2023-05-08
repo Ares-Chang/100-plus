@@ -30,7 +30,7 @@ export default defineConfig({
     presetWebFonts({
       fonts: {
         sans: 'DM Sans',
-        serif: 'DM Serif Display',
+        windsong: 'WindSong',
         mono: 'DM Mono',
       },
     }),
