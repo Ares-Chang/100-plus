@@ -52,7 +52,7 @@ const list = [
 </script>
 
 <template>
-  <div h-full>
+  <div h-full max-w-140ch m-auto>
     <div>
       <div text-3xl font-bold>
         Projects
