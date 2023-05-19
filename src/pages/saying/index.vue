@@ -30,10 +30,10 @@ getDataList()
   >
     <div max-w-1200px w-50vw text-2xl font-bold>
       <div>{{ obj.text }}</div>
-      <div text-right mt-2>
+      <div v-if="obj.source || obj.author" flex justify-end gap-2 mt-2>
         <span>——</span>
-        <span>{{ obj.source }}</span>
-        <span>{{ obj.author }}</span>
+        <span v-if="obj.source">「{{ obj.source }}」</span>
+        <span v-if="obj.author">{{ obj.author }}</span>
       </div>
     </div>
   </div>
