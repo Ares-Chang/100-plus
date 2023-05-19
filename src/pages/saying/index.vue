@@ -23,7 +23,11 @@ getDataList()
 </script>
 
 <template>
-  <div h-100vh flex justify-center items-center>
+  <div
+    h-100vh
+    flex justify-center items-center
+    @click="toggleFullScreen"
+  >
     <div max-w-1200px w-50vw text-2xl font-bold>
       <div>{{ obj.text }}</div>
       <div text-right mt-2>
