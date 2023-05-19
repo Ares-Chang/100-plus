@@ -48,6 +48,10 @@ const list = [
     name: '日历',
     link: 'https://100.areschang.top/calendar',
   },
+  {
+    name: 'saying',
+    link: 'https://100.areschang.top/saying',
+  },
 ]
 </script>
 
