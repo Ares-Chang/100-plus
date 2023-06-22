@@ -14,9 +14,8 @@ const obj = ref<Saying>({
 })
 
 async function getDataList() {
-  const { data: list } = await useFetch('/api/saying.json').json()
-  const index = useRandomInt(0, list.value.length - 1)
-  obj.value = list.value[index]
+  const { data } = await useFetch('https://api.aword.areschang.top/').json()
+  obj.value = data.value
 }
 
 getDataList()
