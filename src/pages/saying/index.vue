@@ -23,13 +23,13 @@ getDataList()
 
 <template>
   <div
-    h-100vh
-    flex justify-center items-center
+
+    h-100vh flex items-center justify-center
     @click="toggleFullScreen"
   >
     <div max-w-1200px w-50vw text-2xl font-bold>
       <div>{{ obj.text }}</div>
-      <div v-if="obj.source || obj.author" flex justify-end gap-2 mt-2>
+      <div v-if="obj.source || obj.author" mt-2 flex justify-end gap-2>
         <span>——</span>
         <span v-if="obj.source">「{{ obj.source }}」</span>
         <span v-if="obj.author">{{ obj.author }}</span>

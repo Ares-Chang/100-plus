@@ -6,16 +6,16 @@ watchEffect(() => list = useDateFormat(useNow(), 'HH:mm:ss').value.split(':'))
 
 <template>
   <div
-    bg-black w-100vw h-100vh select-none
-    flex justify-center items-center gap-6
+
+    h-100vh w-100vw flex select-none items-center justify-center gap-6 bg-black
     class="font-style"
   >
     <template
       v-for="(item, index) in list" :key="index"
     >
       <div
-        bg="#0f0f0f" text-15rem
-        text-center px-10 rd-4
+        bg="#0f0f0f"
+        rd-4 px-10 text-center text-15rem
       >
         {{ item }}
       </div>
@@ -26,6 +26,7 @@ watchEffect(() => list = useDateFormat(useNow(), 'HH:mm:ss').value.split(':'))
 
 <style scoped>
 .font-style {
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5fae\8f6f\96c5\9ed1",Arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
 }
 </style>

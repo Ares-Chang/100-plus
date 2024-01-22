@@ -56,11 +56,11 @@ const KEYLIST = [
       <p>{{ data.yearTips }}({{ data.chineseZodiac }})年 {{ data.lunarCalendar }} 星期{{ useDateFormat(data.date, 'dd').value }}</p>
     </template>
     <div mb-4>
-      <span color-white bg-green-7 p="x-2 y-1" mr-5>宜</span>
+      <span p="x-2 y-1" mr-5 bg-green-7 color-white>宜</span>
       <span color="green-6">{{ data.suit }}</span>
     </div>
     <div mb-4>
-      <span color-white bg-red-7 p="x-2 y-1" mr-5>忌</span>
+      <span p="x-2 y-1" mr-5 bg-red-7 color-white>忌</span>
       <span color-red-5>{{ data.avoid }}</span>
     </div>
     <n-list>
@@ -72,7 +72,7 @@ const KEYLIST = [
             }}{{ data[item.key] }}
           </n-gi>
           <n-gi v-if="item.tips" color="gray/80" flex items-center>
-            <i icon-btn text-sm i-carbon:ai-status-in-progress mr-1 />
+            <i i-carbon:ai-status-in-progress mr-1 text-sm icon-btn />
             {{ item.tips }}
           </n-gi>
         </n-grid>

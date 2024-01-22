@@ -11,5 +11,5 @@ const num = useRandomInt(0, list.length - 1)
 </script>
 
 <template>
-  <iframe w-100vw h-100vh :src="list[num].path" frameborder="0" />
+  <iframe h-100vh w-100vw :src="list[num].path" frameborder="0" />
 </template>

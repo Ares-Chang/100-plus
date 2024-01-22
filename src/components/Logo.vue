@@ -7,7 +7,7 @@
 <style>
 .AresChang {
   color: transparent;
-  background: linear-gradient( 315deg, #42d392 25%, #647eff );
+  background: linear-gradient(315deg, #42d392 25%, #647eff);
   background-clip: text;
   -webkit-background-clip: text;
 }

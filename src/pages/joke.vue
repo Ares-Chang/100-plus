@@ -84,8 +84,8 @@ document.addEventListener('keydown', ({ code }) => {
 </script>
 
 <template>
-  <div h-hull flex justify-center items-center>
-    <n-card w="50%!" h-60vh embedded hoverable>
+  <div h-hull flex items-center justify-center>
+    <n-card w="50%!" hoverable embedded h-60vh>
       <template v-if="isSkeleton">
         <n-skeleton text :repeat="useRandomInt(2, 5)" />
         <n-skeleton text :style="`width: ${useRandomInt(2, 8)}0%`" />
@@ -98,7 +98,7 @@ document.addEventListener('keydown', ({ code }) => {
           </n-button>
           <n-gradient-text type="warning">
             按下键盘左右键或
-            <code color="#f1b85c" bg="#f1f1f1" dark:bg="#3a3a3a" text="0.8rem" p="y-0.5 x-1.4" border-rd-1 m-1>click</code>
+            <code color="#f1b85c" bg="#f1f1f1" dark:bg="#3a3a3a" text="0.8rem" p="y-0.5 x-1.4" m-1 border-rd-1>click</code>
             进行翻页操作
           </n-gradient-text>
           <n-button text text-24px="!" @click="handle('next')">

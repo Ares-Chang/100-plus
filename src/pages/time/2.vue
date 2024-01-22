@@ -33,8 +33,8 @@ watchEffect(() => {
 
 <template>
   <div
-    min-h-100vh select-none
-    flex justify-center items-center
+
+    min-h-100vh flex select-none items-center justify-center
     @click="toggleFullScreen"
   >
     <div flex="~ wrap" justify-center gap-14>

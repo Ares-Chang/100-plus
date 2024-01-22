@@ -10,7 +10,7 @@ watchEffect(() => {
 
 <template>
   <div class="box" select-none @click="toggleFullScreen">
-    <div flex justify-center gap-10 z-1>
+    <div z-1 flex justify-center gap-10>
       <a href="https://github.com/Ares-Chang/100-plus" target="_blank" @click.stop>
         <span class="GitHub">GitHub</span>
       </a>
@@ -28,7 +28,7 @@ watchEffect(() => {
 <style>
 .box {
   line-height: 1;
-  font-family:"Microsoft YaHei",微软雅黑;
+  font-family: 'Microsoft YaHei', 微软雅黑;
   color: #e2ecfd;
   background-color: #0d1320;
   flex-flow: column;
@@ -36,6 +36,6 @@ watchEffect(() => {
 }
 .box span {
   line-height: 1;
-  @apply text-size-7vh font-bold
+  @apply text-size-7vh font-bold;
 }
 </style>

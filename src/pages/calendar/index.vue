@@ -5,7 +5,7 @@ useSetTitle('Calendar')
 </script>
 
 <template>
-  <div flex justify-center items-center>
+  <div flex items-center justify-center>
     <Calendar />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div h-100vh overflow-hidden>
-    <n-card w-200="!" text-center mx-auto hoverable mt-xl>
+    <n-card w-200="!" hoverable mx-auto mt-xl text-center>
       <n-gradient-text
         size="40"
         type="error"

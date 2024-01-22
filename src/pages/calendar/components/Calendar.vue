@@ -81,9 +81,9 @@ const show = $ref(false) // 控制弹窗显隐
       {{ getToday(month, date).typeDes }}
     </p>
     <div
-      text-sm color="#ffffff8f" hover:color="#ffffff"
-      flex items-center
-      position-absolute bottom-2 right-2
+      color="#ffffff8f" hover:color="#ffffff"
+
+      position-absolute bottom-2 right-2 flex items-center text-sm
       @click="() => (show = true)"
     >
       详情

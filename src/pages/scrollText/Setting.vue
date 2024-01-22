@@ -30,16 +30,15 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
       <div flex="~ wrap" gap-2>
         <div
           v-for="(item, index) in ColorList" :key="index"
-          w-8 h-8
-          flex-shrink-0
-          flex justify-center items-center
+
+          h-8 w-8 flex flex-shrink-0 items-center justify-center
           :class="`bg-${item}`"
           @click="emit('update:config', { ...config, color: item })"
         >
           <i
             v-if="config.color === item"
-            i-carbon-checkmark-filled
-            icon-btn text-lg
+
+            i-carbon-checkmark-filled text-lg icon-btn
             :class="{
               'color-green': ['white', 'black'].includes(item),
             }"
@@ -49,11 +48,11 @@ const emit = defineEmits(['update:text', 'update:show', 'update:config'])
       <p my-2>
         动画速度
       </p>
-      <div flex gap-2 text-center overflow-auto>
+      <div flex gap-2 overflow-auto text-center>
         <div
           v-for="item in Array.from({ length: 20 }, (_, index) => 0.5 * (index + 1))" :key="item"
-          w-8 h-8
-          flex-shrink-0
+
+          h-8 w-8 flex-shrink-0
           :class="{
             'color-green': config.speed === `${item}s`,
           }"

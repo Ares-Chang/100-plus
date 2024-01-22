@@ -70,7 +70,8 @@ export default defineComponent({
             rd="50%"
             bg="dark:gray/40 gray/20"
             icon-btn
-            onClick={() => toggleDark()}>
+            onClick={() => toggleDark()}
+          >
             <div dark:i-carbon-moon i-carbon-sun text-xl />
           </button>
         </div>
@@ -78,13 +79,18 @@ export default defineComponent({
           <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time) }</div>
           <div my-24 text-center>
             <div>{ tipText }</div>
-            <div>最佳成绩 <span color-orange>{ getFormattingTime(best) }</span></div>
+            <div>
+              最佳成绩
+              <span color-orange>{ getFormattingTime(best) }</span>
+            </div>
           </div>
           <div
-            p-13 rd="50%"
+            p-13
+            rd="50%"
             bg="dark:white black"
             color="dark:black white"
-            onClick={handleBtn}>
+            onClick={handleBtn}
+          >
             { btnText }
           </div>
         </div>
