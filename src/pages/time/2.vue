@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const dataList = $ref<{
+interface DataItem {
   label: string
   status: 'success' | 'error' | 'warning' | 'info' | 'default'
   value: string
-}[]>([
+}
+
+const dataList = $ref<DataItem[]>([
   {
     label: 'HOURS',
     status: 'error',
@@ -25,7 +27,7 @@ let meridiem = $ref('') // AM/PM
 watchEffect(() => {
   const [_meridiem, ...data] = useDateFormat(useNow(), 'A:HH:mm:ss').value.split(':')
   meridiem = _meridiem
-  dataList.forEach((item, index) => {
+  dataList.forEach((item: DataItem, index: number) => {
     item.value = data[index]
   })
 })
@@ -33,7 +35,6 @@ watchEffect(() => {
 
 <template>
   <div
-
     min-h-100vh flex select-none items-center justify-center
     @click="toggleFullScreen"
   >

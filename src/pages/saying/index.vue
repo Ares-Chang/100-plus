@@ -23,7 +23,6 @@ getDataList()
 
 <template>
   <div
-
     h-100vh flex items-center justify-center
     @click="toggleFullScreen"
   >

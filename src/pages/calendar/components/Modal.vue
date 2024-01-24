@@ -49,7 +49,7 @@ const KEYLIST = [
     :title="date"
     size="huge"
     :bordered="false"
-    @update-show="e => emit('update:show', e)"
+    @update-show="(e: string) => emit('update:show', e)"
   >
     <template #header>
       <p>{{ data.date }}</p>

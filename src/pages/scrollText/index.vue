@@ -13,8 +13,9 @@ useStorage('scroll-text-config', config) // 持久化存储
 
 <template>
   <div
-
-    h-100vh w-100vw flex items-center justify-center overflow-hidden bg-black
+    h-100vh w-100vw
+    flex items-center justify-center
+    overflow-hidden bg-black
     @click="show = true"
   >
     <div :class="`LoopText color-${config.color}`">

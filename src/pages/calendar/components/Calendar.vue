@@ -76,14 +76,16 @@ const show = $ref(false) // 控制弹窗显隐
       value="班"
       :color="isDark ? '' : '#e65945'"
     />
+
     <p>{{ getToday(month, date).lunarCalendar }}</p>
     <p v-if="getToday(month, date).type === 2" color="#ff5957">
       {{ getToday(month, date).typeDes }}
     </p>
-    <div
-      color="#ffffff8f" hover:color="#ffffff"
 
-      position-absolute bottom-2 right-2 flex items-center text-sm
+    <div
+      color="#ffffff8f hover:white"
+      position-absolute bottom-2 right-2
+      flex items-center text-sm
       @click="() => (show = true)"
     >
       详情

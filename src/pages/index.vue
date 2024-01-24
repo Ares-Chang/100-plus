@@ -69,7 +69,6 @@ const list = [
       <a
         v-for="item in list" :key="item.name"
         :href="item.link" target="_blank"
-
         shadow="~ pink"
         h-60 w-80 bg-gray-600 p-3 transition-all-400
         hover="translate-y--2 shadow-xl"
