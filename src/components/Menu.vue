@@ -1,10 +1,6 @@
 <template>
-  <nav
-
-    flex items-center text-center text-xl
-  >
+  <nav flex items-center text-center text-xl>
     <a
-
       i-carbon:face-wink-filled mx-2 icon-btn
       href="/joke"
       target="_blank"
@@ -12,7 +8,6 @@
     />
 
     <a
-
       i-carbon:time mx-2 icon-btn
       href="/time"
       target="_blank"
@@ -24,7 +19,6 @@
     </button>
 
     <a
-
       i-carbon-logo-github mx-2 icon-btn
       rel="noreferrer"
       href="https://github.com/Ares-Chang/100-plus"
