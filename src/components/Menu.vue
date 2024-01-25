@@ -14,7 +14,7 @@
       title="Time"
     />
 
-    <button mx-2 icon-btn @click="toggleDark()">
+    <button mx-2 icon-btn @click="toggleDark">
       <div i-carbon-sun dark:i-carbon-moon />
     </button>
 
