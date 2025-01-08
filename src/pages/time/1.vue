@@ -1,10 +1,10 @@
 <script setup lang="ts">
-let date = $ref('')
-let week = $ref('')
-let time = $ref('')
+const date = ref('')
+const week = ref('')
+const time = ref('')
 
 watchEffect(() => {
-  [date, week, time] = useDateFormat(useNow(), 'MM-DD ddd HH:mm').value.split(' ')
+  [date.value, week.value, time.value] = useDateFormat(useNow(), 'MM-DD ddd HH:mm').value.split(' ')
 })
 </script>
 

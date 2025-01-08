@@ -6,15 +6,15 @@ interface JokeInfo {
   updateTime: string
 }
 const message = useMessage()
-let active = $ref(0) // 当前 key 下标
-const dataList = $ref<JokeInfo[]>([])
-let isSkeleton = $ref(true) // 是否显示骨架屏
+const active = ref(0) // 当前 key 下标
+const dataList = ref<JokeInfo[]>([])
+const isSkeleton = ref(true) // 是否显示骨架屏
 
 /**
  * 随机获取笑话段子列表
  */
 async function getDataList() {
-  isSkeleton = true
+  isSkeleton.value = true
   try {
     const {
       data: {
@@ -29,8 +29,8 @@ async function getDataList() {
     if (code !== 1)
       throw code
 
-    dataList.push(...data)
-    setTimeout(() => isSkeleton = false, 800)
+    dataList.value.push(...data)
+    setTimeout(() => isSkeleton.value = false, 800)
   }
   catch (error) {
     console.error(error)
@@ -46,15 +46,15 @@ getDataList()
  */
 function handle(key: string) {
   if (key === 'prev') {
-    if (active <= 0)
+    if (active.value <= 0)
       return message.warning('已经第一页了呦~')
-    active--
+    active.value--
   }
   else if (key === 'next') {
-    active++
-    if (isSkeleton)
+    active.value++
+    if (isSkeleton.value)
       return message.warning('请稍等，数据加载中！')
-    else if (active >= dataList.length - 1)
+    else if (active.value >= dataList.value.length - 1)
       getDataList()
   }
 }

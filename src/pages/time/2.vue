@@ -5,7 +5,7 @@ interface DataItem {
   value: string
 }
 
-const dataList = $ref<DataItem[]>([
+const dataList = ref<DataItem[]>([
   {
     label: 'HOURS',
     status: 'error',
@@ -22,12 +22,12 @@ const dataList = $ref<DataItem[]>([
     value: '',
   },
 ])
-let meridiem = $ref('') // AM/PM
+const meridiem = ref('') // AM/PM
 
 watchEffect(() => {
   const [_meridiem, ...data] = useDateFormat(useNow(), 'A:HH:mm:ss').value.split(':')
-  meridiem = _meridiem
-  dataList.forEach((item: DataItem, index: number) => {
+  meridiem.value = _meridiem
+  dataList.value.forEach((item: DataItem, index: number) => {
     item.value = data[index]
   })
 })

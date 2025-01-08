@@ -3,15 +3,15 @@ import type { YearList } from '@/types/Calendar'
 import { addDays } from 'date-fns'
 import Modal from './Modal.vue'
 
-const value = $ref(addDays(Date.now(), 1).valueOf())
+const value = ref(addDays(Date.now(), 1).valueOf())
 const message = useMessage()
 
-let dateList = $ref<YearList[]>([])
-const pitchYear = $ref(+useDateFormat(value, 'YYYY').value)
+const dateList = ref<YearList[]>([])
+const pitchYear = ref(+useDateFormat(value, 'YYYY').value)
 
 watch(
-  () => pitchYear,
-  () => getDataList(pitchYear),
+  pitchYear,
+  () => getDataList(pitchYear.value),
 )
 
 /**
@@ -33,7 +33,7 @@ async function getDataList(date: string | number) {
     if (code !== 1)
       throw code
 
-    dateList = data
+    dateList.value = data
   }
   catch (error) {
     console.error(error)
@@ -41,7 +41,7 @@ async function getDataList(date: string | number) {
   }
 }
 
-getDataList(pitchYear)
+getDataList(pitchYear.value)
 
 /**
  * 获取当前日期对应数据
@@ -50,10 +50,10 @@ getDataList(pitchYear)
  * @return {days} 返回当天数据体
  */
 function getToday(month: number, date: number) {
-  return dateList[month - 1]?.days[date - 1] || {}
+  return dateList.value[month - 1]?.days[date - 1] || {}
 }
 
-const show = $ref(false) // 控制弹窗显隐
+const show = ref(false) // 控制弹窗显隐
 </script>
 
 <template>

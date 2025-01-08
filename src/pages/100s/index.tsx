@@ -1,16 +1,17 @@
 export default defineComponent({
   setup() {
     const base = 10000 // 最佳 10s 对比基数
-    let best = $(useStorage('100s', 0)) // 存储最佳成绩
-    let time = $ref(0) // 存储当局时间
-    let start = $ref(0) // 存储点击开始时间
-    const now = $(useNow()) // 当前时间戳，用于驱动数据更新
+    const best = useStorage('100s', 0) // 存储最佳成绩
+    const time = ref(0) // 存储当局时间
+    const start = ref(0) // 存储点击开始时间
+    const now = useNow() // 当前时间戳，用于驱动数据更新
+
     /**
      * 按钮显示文字
      */
-    const btnText = $computed(() => {
-      return start ? '停止' : time ? '复位' : '开始'
-    })
+    const btnText = computed(() =>
+      start.value ? '停止' : time.value ? '复位' : '开始',
+    )
 
     const tipList = [
       '不是哥吹，一把就过！',
@@ -19,14 +20,15 @@ export default defineComponent({
       '你与成功的距离就差一点儿~',
       '我在这儿等着你成功~',
     ]
+
     /**
      * tip 显示文字
      */
-    const tipText: string = $computed(() => {
+    const tipText = computed((): string => {
       let text = tipList[useRandomInt(0, tipList.length - 1)]
-      if (time === 10000)
+      if (time.value === 10000)
         text = '喜提大奖，不买彩票可惜了~'
-      return btnText === '复位' ? text : (tipText || text)
+      return btnText.value === '复位' ? text : (tipText.value || text)
     })
 
     /**
@@ -34,22 +36,22 @@ export default defineComponent({
      * 通过时间戳更新来规则定时器最小延迟问题
      * 时间戳更新，判断是记录有开始时间，如有进行计算绝对值差值
      */
-    watch(() => now, () => {
-      if (!start)
+    watch(now, () => {
+      if (!start.value)
         return
-      time = Math.abs(start - now.getTime())
+      time.value = Math.abs(start.value - now.value.getTime())
     })
 
     function handleBtn() {
-      if (!start) {
+      if (!start.value) {
         if (time)
-          return time = 0
-        start = now.getTime()
+          return time.value = 0
+        start.value = now.value.getTime()
       }
       else {
-        start = 0
-        if (Math.abs(time - base) <= Math.abs(best - base))
-          best = time
+        start.value = 0
+        if (Math.abs(time.value - base) <= Math.abs(best.value - base))
+          best.value = time.value
       }
     }
 
@@ -76,12 +78,12 @@ export default defineComponent({
           </button>
         </div>
         <div flex="~ col" justify-center items-center>
-          <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time) }</div>
+          <div text-6xl style="letter-spacing: 8px">{ getFormattingTime(time.value) }</div>
           <div my-24 text-center>
             <div>{ tipText }</div>
             <div>
               最佳成绩
-              <span color-orange>{ getFormattingTime(best) }</span>
+              <span color-orange>{ getFormattingTime(best.value) }</span>
             </div>
           </div>
           <div

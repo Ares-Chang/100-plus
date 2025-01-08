@@ -1,7 +1,9 @@
 <script setup lang="ts">
-let list: string[] = $ref([])
+const list = ref<string[]>([])
 
-watchEffect(() => list = useDateFormat(useNow(), 'HH:mm:ss').value.split(':'))
+watchEffect(() => {
+  list.value = useDateFormat(useNow(), 'HH:mm:ss').value.split(':')
+})
 </script>
 
 <template>

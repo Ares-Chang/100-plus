@@ -20,7 +20,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^3.12.2",
     "@iconify-json/carbon": "^1.2.5",
-    "@types/node": "18.16.3",
+    "@types/node": "^22.10.5",
     "@unocss/eslint-config": "^0.65.3",
     "@unocss/eslint-plugin": "^0.65.3",
     "@unocss/preset-attributify": "^0.65.3",
@@ -28,7 +28,6 @@
     "@unocss/transformer-attributify-jsx": "^0.65.3",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
-    "@vue-macros/reactivity-transform": "^1.1.4",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.17.0",
     "eslint-plugin-format": "^1.0.1",

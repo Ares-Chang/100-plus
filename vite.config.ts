@@ -3,7 +3,6 @@
 import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
-import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
@@ -21,14 +20,6 @@ export default defineConfig({
 
   plugins: [
     Vue(),
-
-    /**
-     * reactivityTransform 已于 Vue 3.3 版本被标记为已弃用，Vue 3.4 版本于核心包中移除
-     * 详情参见 @see https://github.com/vuejs/rfcs/discussions/369#discussioncomment-5059028
-     * 现已在 Vue Macros 外部实现
-     * {@link 文档 https://vue-macros.sxzz.moe/features/reactivity-transform.html}
-     */
-    ReactivityTransform(),
 
     /** @see https://github.com/hannoeru/vite-plugin-pages */
     Pages({

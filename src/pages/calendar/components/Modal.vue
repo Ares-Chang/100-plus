@@ -7,7 +7,7 @@ const { show, data } = defineProps<{
 }>()
 const emit = defineEmits(['update:show'])
 
-const date = $ref(data.date)
+const date = ref(data.date)
 const showModal = ref(show)
 
 const KEYLIST = [
