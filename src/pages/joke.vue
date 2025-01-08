@@ -33,6 +33,7 @@ async function getDataList() {
     setTimeout(() => isSkeleton = false, 800)
   }
   catch (error) {
+    console.error(error)
     message.error('啊哦 ~ 数据好像走丢了')
   }
 }

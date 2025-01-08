@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ColorList } from '@/composables/color'
 import type { ConfigProps } from '@/types/ScrollText'
+import { ColorList } from '@/composables/color'
 
 const { show } = defineProps<{
   text: string

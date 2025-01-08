@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { addDays } from 'date-fns/esm'
-import Modal from './Modal.vue'
 import type { YearList } from '@/types/Calendar'
+import { addDays } from 'date-fns'
+import Modal from './Modal.vue'
 
 const value = $ref(addDays(Date.now(), 1).valueOf())
 const message = useMessage()
@@ -36,6 +36,7 @@ async function getDataList(date: string | number) {
     dateList = data
   }
   catch (error) {
+    console.error(error)
     message.error('万年历获取失败！')
   }
 }

@@ -1,3 +1,4 @@
+import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx'
 import {
   defineConfig,
   presetAttributify,
@@ -7,7 +8,6 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
-import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx'
 import { BGColortList, TextColorList } from './src/composables/color'
 
 export default defineConfig({

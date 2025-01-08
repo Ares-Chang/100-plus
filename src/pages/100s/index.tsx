@@ -70,7 +70,7 @@ export default defineComponent({
             rd="50%"
             bg="dark:gray/40 gray/20"
             icon-btn
-            onClick={() => toggleDark()}
+            onClick={toggleDark}
           >
             <div dark:i-carbon-moon i-carbon-sun text-xl />
           </button>
