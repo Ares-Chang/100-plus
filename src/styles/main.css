@@ -6,10 +6,6 @@ body,
   padding: 0;
 }
 
-html.dark {
-  background: #121212;
-}
-
 /* Dark Mode 渐变动画 */
 ::view-transition-old(root),
 ::view-transition-new(root) {
