@@ -45,7 +45,7 @@ watchEffect(() => {
     <div flex="~ wrap" justify-center gap-14>
       <Circle
         v-for="(item, index) in dataList" :key="index"
-        :percentage="+item.value / 60 * 100"
+        :width="320" :percentage="+item.value / 60 * 100"
         :color="item.color"
       >
         <div text-center text-4xl>

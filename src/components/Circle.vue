@@ -17,19 +17,19 @@ const props = withDefaults(defineProps<{
    */
   strokeWidth?: number
   /**
-   * 宽度
+   * 圆环宽度
    */
   width?: number
 }>(), {
   percentage: 0,
   color: '#e88080',
   inactiveColor: '#ffffff1f',
-  strokeWidth: 20,
-  width: 300,
+  strokeWidth: 7,
+  width: 200,
 })
 
 const relativeStrokeWidth = computed(() =>
-  ((props.strokeWidth / props.width) * 100).toFixed(1),
+  ((props.strokeWidth / 100) * 100).toFixed(1),
 )
 
 const radius = computed(() =>
@@ -50,19 +50,18 @@ const circlePathStyle = computed(() => ({
     class="circle"
     :style="{
       width: `${props.width}px`,
-      height: `${props.width}px`,
     }"
   >
     <svg viewBox="0 0 100 100">
       <circle
         :r="radius"
         :stroke="props.inactiveColor"
-        :stroke-width="relativeStrokeWidth"
+        :stroke-width="props.strokeWidth"
       />
       <circle
         :r="radius"
         :stroke="props.color"
-        :stroke-width="relativeStrokeWidth"
+        :stroke-width="props.strokeWidth"
         :style="circlePathStyle"
       />
     </svg>
@@ -76,7 +75,8 @@ const circlePathStyle = computed(() => ({
 <style scoped>
 .circle {
   position: relative;
-  border-radius: 50%;
+  /* 宽高相等 */
+  aspect-ratio: 1/1;
 }
 
 .text {
@@ -88,6 +88,8 @@ const circlePathStyle = computed(() => ({
 }
 
 .circle > svg {
+  width: 100%;
+  height: 100%;
   transform: rotate(90deg);
 }
 
