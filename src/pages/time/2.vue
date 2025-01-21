@@ -3,6 +3,7 @@ interface DataItem {
   label: string
   status: 'success' | 'error' | 'warning' | 'info' | 'default'
   value: string
+  color: string
 }
 
 const dataList = ref<DataItem[]>([
@@ -10,16 +11,19 @@ const dataList = ref<DataItem[]>([
     label: 'HOURS',
     status: 'error',
     value: '',
+    color: '#e88080',
   },
   {
     label: 'MINUTES',
     status: 'warning',
     value: '',
+    color: '#f2c97d',
   },
   {
     label: 'SECONDS',
     status: 'success',
     value: '',
+    color: '#63e2b7',
   },
 ])
 const meridiem = ref('') // AM/PM
@@ -39,11 +43,10 @@ watchEffect(() => {
     @click="toggleFullScreen"
   >
     <div flex="~ wrap" justify-center gap-14>
-      <n-progress
+      <Circle
         v-for="(item, index) in dataList" :key="index"
-        w="80!" type="circle"
-        :status="item.status"
         :percentage="+item.value / 60 * 100"
+        :color="item.color"
       >
         <div text-center text-4xl>
           <p text-8xl font-bold>
@@ -51,11 +54,14 @@ watchEffect(() => {
           </p>
           <p>{{ item.label }}</p>
         </div>
-      </n-progress>
+      </Circle>
       <div text-5xl>
-        <n-gradient-text font="bold!" :type="meridiem === 'AM' ? 'warning' : 'error'">
+        <div
+          w-fit bg-gradient-to-rt bg-clip-text text-transparent font-bold op-90
+          :class="meridiem === 'AM' ? 'from-amber-500 to-amber' : 'from-rose-500 to-rose'"
+        >
           {{ meridiem }}
-        </n-gradient-text>
+        </div>
       </div>
     </div>
   </div>
